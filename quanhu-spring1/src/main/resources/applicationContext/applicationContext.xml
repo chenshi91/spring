@@ -12,7 +12,7 @@
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd"
 	default-lazy-init="true">
 
-	<bean	id="user"	class="org.quanhu.spring1.day1.entity.User"	scope="">
+	<bean	id="user"	class="org.quanhu.spring1.day1.entity.User"	>
 		<property name="id">
 			<value	type="java.lang.Long">119</value>
 		</property>
@@ -20,6 +20,12 @@
 			<value	type="java.lang.String">chenshi</value>
 		</property>
 		<property name="passWord"	value="123"/>
+	</bean>
+	
+	<bean	id="user2"	class="org.quanhu.spring1.day1.entity.User"	>
+		<constructor-arg	type="java.lang.Long"	value="89"/>
+		<constructor-arg	type="java.lang.String"	value="xujiali"/>
+		<constructor-arg	type="java.lang.String"	value="xyq"/>	
 	</bean>
 	
 	<bean	id="userDao"	class="org.quanhu.spring1.day1.dao.UserDaoImpl"	scope="singleton">
@@ -30,8 +36,6 @@
 		<property name="userDao"	ref="userDao"/>
 	</bean>
 	
-	<bean	class="">
 	
-	</bean>
 	
 </beans>
