@@ -17,16 +17,23 @@
 	
 	<bean	id="helloWorld"	class="org.quanhu.spring2.day2.service.impl.HelloWorldImpl"	scope="singleton"/>
 	<bean	id="printTime"	class="org.quanhu.spring2.aop.TimeHandler"/>
+	<bean	id="aopMethodInteception"	class="org.quanhu.spring2.aop.AopMethodInteception"></bean>
 	
-	<!-- <aop:config>
-		声明一个切面,并注入切面Bean,相当于@Aspect
-		<aop:aspect	id="time"	ref="printTime"	order="1">
-			配置一个切入点,相当于@Pointcut
-			<aop:pointcut expression="execution(* org.quanhu.spring2.day2.service.impl..*(..))" id="simplePointcut"/>
+	<bean	id="helloWorldProxy"	class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="interfaces"	ref="helloWorld"></property>
+		<property name="target"	ref="aopMethodInteception"></property>
+	</bean>
+	
+	<aop:config>
+		<!-- 声明一个切面,并注入切面Bean,相当于@Aspect -->
+		<aop:aspect	id="time"	ref="aopMethodInteception"	order="1">
+			<!-- <aop:around method="invoke"	pointcut="execution(* *(..))"/> -->
+			<!-- 配置一个切入点,相当于@Pointcut -->
+			<!-- <aop:pointcut expression="execution(* *(..))" id="simplePointcut"/>
 			<aop:before method="printStartTime"	pointcut-ref="simplePointcut"/>
-			<aop:after	method="printEndTime"	pointcut-ref="simplePointcut"/>
+			<aop:after	method="printEndTime"	pointcut-ref="simplePointcut"/> -->
 		</aop:aspect>
-	</aop:config> -->
+	</aop:config>
 	
 	
 	
