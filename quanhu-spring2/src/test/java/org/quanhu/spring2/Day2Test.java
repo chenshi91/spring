@@ -27,6 +27,11 @@ public class Day2Test {
 		act=new		ClassPathXmlApplicationContext("applicationContext/applicationContext.xml");
 	}
 	
+	@Test
+	public void closeResource(){
+		act=null;
+	}
+	
 	
 	@Test
 	public	void	createHelloWorld(){
@@ -66,6 +71,7 @@ public class Day2Test {
 		helloWorld.doPrint();
 	}
 	
+	@Test
 	public void xml(){
 		act.getBean("helloWorldProxy");
 	}

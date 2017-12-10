@@ -7,6 +7,7 @@ import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.Set;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.quanhu.spring1.day1.entity.User;
@@ -25,17 +26,26 @@ public class Day1Test {
 	
 	private	ApplicationContext	act=null;
 	private	InputStream inputStream=null;
-	private	Properties properties = new	Properties();
+	private	Properties properties = null;
 	
 	@Before
 	public	void	createApplicationContext(){
 		act=new		ClassPathXmlApplicationContext("applicationContext/applicationContext.xml");
 		try {
 			inputStream = getClass().getResourceAsStream("/config/jdbc.properties");
+			properties = new	Properties();
 			properties.load(inputStream);
 		} catch (IOException e) {
 			System.out.println("捕获带了io异常");
+			e.printStackTrace();
 		}
+	}
+	
+	@After
+	public void colseResource(){
+		inputStream=null;
+		act=null;
+		properties=null;
 	}
 	
 	@Test
@@ -64,6 +74,7 @@ public class Day1Test {
 		for (Entry<Object, Object> entry : entrySet) {
 			System.out.println(entry.getKey()+"="+entry.getValue());
 		}
+		System.out.println(properties.get("username").toString());
 	}
 	
 
