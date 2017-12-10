@@ -73,7 +73,7 @@ public class Day1Test {
 		Set<Entry<Object, Object>> entrySet = properties.entrySet();
 		for (Entry<Object, Object> entry : entrySet) {
 			System.out.println(entry.getKey()+"="+entry.getValue());
-		}
+		} 
 		System.out.println(properties.get("username").toString());
 	}
 	
