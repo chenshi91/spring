@@ -61,6 +61,12 @@ public class Day1Test {
 	}
 	
 	@Test
+	public	void	createUser3(){
+		User user = (User) act.getBean("user3");
+		System.out.println(user.toString());
+	}
+	
+	@Test
 	public	void	createUserService(){
 		UserService userService = (UserService) act.getBean("userService");
 		User user = userService.selectById(1L);

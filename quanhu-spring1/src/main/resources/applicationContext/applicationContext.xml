@@ -11,21 +11,29 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
 		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.0.xsd"
 	default-lazy-init="true">
+	
+	<context:property-placeholder	location="classpath:/config/jdbc.properties"/>
 
-	<bean	id="user"	class="org.quanhu.spring1.day1.entity.User"	>
+	<bean	id="user"	class="org.quanhu.spring1.day1.entity.User"	init-method=""	destroy-method="">
 		<property name="id">
 			<value	type="java.lang.Long">119</value>
 		</property>
 		<property name="userName">
 			<value	type="java.lang.String">chenshi</value>
 		</property>
-		<property name="passWord"	value="123"/>
+		<property name="passWord"	value="123xdff"/>
 	</bean>
 	
 	<bean	id="user2"	class="org.quanhu.spring1.day1.entity.User"	>
 		<constructor-arg	type="java.lang.Long"	value="89"/>
 		<constructor-arg	type="java.lang.String"	value="xujiali"/>
 		<constructor-arg	type="java.lang.String"	value="xyq"/>	
+	</bean>
+	
+	<bean	id="user3"	class="org.quanhu.spring1.day1.entity.User"	>
+		<constructor-arg	type="java.lang.Long"	value="${id}"/>
+		<constructor-arg	type="java.lang.String"	value="${userName2}"/>
+		<constructor-arg	type="java.lang.String"	value="${passWord}"/>	
 	</bean>
 	
 	<bean	id="userDao"	class="org.quanhu.spring1.day1.dao.UserDaoImpl"	scope="singleton">

@@ -1,6 +1,7 @@
 /**Created	by	chenshi  at	2017年12月5日 上午11:50:12*/
 package org.quanhu.spring2;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.quanhu.spring2.aop.AopMethodInteception;
@@ -24,10 +25,10 @@ public class Day2Test {
 	
 	@Before
 	public	void	createApplicationContext(){
-		act=new		ClassPathXmlApplicationContext("applicationContext/applicationContext.xml");
+		act=new		ClassPathXmlApplicationContext("classpath:/applicationContext/applicationContext.xml");
 	}
 	
-	@Test
+	@After
 	public void closeResource(){
 		act=null;
 	}
@@ -48,11 +49,15 @@ public class Day2Test {
 	
 	@Test
 	public	void	proxyFactory(){
-		ProxyFactory proxyFactory = new	ProxyFactory();//创建代理工厂
-		proxyFactory.setTarget(new HelloWorldImpl());//设置原始类
-		proxyFactory.addAdvice(new TimeHandler());//添加额外功能
+		//创建代理工厂
+		ProxyFactory proxyFactory = new	ProxyFactory();
+		//设置原始类
+		proxyFactory.setTarget(new HelloWorldImpl());
+		//添加额外功能
+		proxyFactory.addAdvice(new TimeHandler());
 		
-		HelloWorldImpl	hellowWorldImpl=(HelloWorldImpl) proxyFactory.getProxy();//从代理工厂中获取代理对象
+		//从代理工厂中获取代理对象
+		HelloWorldImpl	hellowWorldImpl=(HelloWorldImpl) proxyFactory.getProxy();
 		hellowWorldImpl.printHelloWorld();
 		System.out.println("----------------------------------------------------");
 		hellowWorldImpl.doPrint();
@@ -60,11 +65,15 @@ public class Day2Test {
 	
 	@Test
 	public void methodInterceptor(){
-		ProxyFactory proxyFactory = new	ProxyFactory();//创建代理工厂
-		proxyFactory.setTarget(new HelloWorldImpl());//设置原始类
-		proxyFactory.addAdvice(new AopMethodInteception());//添加额外功能
+		//创建代理工厂
+		ProxyFactory proxyFactory = new	ProxyFactory();
+		//设置原始类
+		proxyFactory.setTarget(new HelloWorldImpl());
+		//添加额外功能
+		proxyFactory.addAdvice(new AopMethodInteception());
+		//从代理工厂中拿到代理对象
+		HelloWorld	helloWorld=(HelloWorld) proxyFactory.getProxy();
 		
-		HelloWorld	helloWorld=(HelloWorld) proxyFactory.getProxy();//从代理工厂中拿到代理对象
 		helloWorld.printHelloWorld();
 		System.out.println();
 		System.out.println();

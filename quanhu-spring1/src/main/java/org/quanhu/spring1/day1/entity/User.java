@@ -28,7 +28,7 @@ public class User {
 		this.id = id;
 		this.userName = userName;
 		this.passWord = passWord;
-		System.out.println("-------create    user    有参---------");
+		System.out.println("-------create    user    有参---------"+id+","+userName+","+passWord);
 	}
 	
 	
