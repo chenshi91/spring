@@ -7,9 +7,9 @@
     <artifactId>quanhu</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <groupId>com.wuhan</groupId>
+  
   <artifactId>quanhu-base</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  
   <name>quanhu-base</name>
   <url>http://maven.apache.org</url>
   <properties>
