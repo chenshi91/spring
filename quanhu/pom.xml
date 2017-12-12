@@ -209,6 +209,7 @@
     <module>quanhu-web</module>
     <module>quanhu-test</module>
     <module>quanhu-user</module>
+    <module>quanhu-test2</module>
  </modules> 
   
 </project>
