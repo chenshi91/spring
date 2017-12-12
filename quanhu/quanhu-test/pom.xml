@@ -7,13 +7,17 @@
     <artifactId>quanhu</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  
-  <artifactId>quanhu-spring1</artifactId>
-  <name>quanhu-spring1</name>
-	
-   
- 
+  <groupId>com.wuhan</groupId>
+  <artifactId>quanhu-test</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>Maven Quick Start Archetype</name>
+  <url>http://maven.apache.org</url>
   <dependencies>
-    
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 </project>

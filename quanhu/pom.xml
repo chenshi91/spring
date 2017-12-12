@@ -205,6 +205,10 @@
  	<module>quanhu-spring2</module>
     <module>quanhu-base</module>
     <module>quanhu-topic</module>
-  </modules> 
+    <module>quanhu-xyq</module>
+    <module>quanhu-web</module>
+    <module>quanhu-test</module>
+    <module>quanhu-user</module>
+ </modules> 
   
 </project>
