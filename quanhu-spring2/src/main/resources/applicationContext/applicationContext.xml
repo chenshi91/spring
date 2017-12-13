@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"  
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:aop="http://www.springframework.org/schema/aop"  
 	xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
     xmlns:util="http://www.springframework.org/schema/util" xmlns:task="http://www.springframework.org/schema/task" xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
@@ -24,16 +25,25 @@
 		<property name="target"	ref="aopMethodInteception"></property>
 	</bean>
 	
+	<bean	id="before" class="org.quanhu.spring2.aop.Before"></bean>
+	
 	<aop:config>
-		<!-- 声明一个切面,并注入切面Bean,相当于@Aspect -->
-		<aop:aspect	id="time"	ref="aopMethodInteception"	order="1">
-			<!-- <aop:around method="invoke"	pointcut="execution(* *(..))"/> -->
-			<!-- 配置一个切入点,相当于@Pointcut -->
-			<!-- <aop:pointcut expression="execution(* *(..))" id="simplePointcut"/>
-			<aop:before method="printStartTime"	pointcut-ref="simplePointcut"/>
-			<aop:after	method="printEndTime"	pointcut-ref="simplePointcut"/> -->
-		</aop:aspect>
+		<!-- 1,定义切入点 -->
+		<aop:pointcut	id="pic"	expression="execution(* *(..))"/>
+		<!-- 2,组装切面 -->
+		<aop:advisor	pointcut-ref="pic"		advice-ref="before"/>
 	</aop:config>
+	
+	<!-- <aop:config>
+		声明一个切面,并注入切面Bean,相当于@Aspect
+		<aop:aspect	id="time"	ref="aopMethodInteception"	order="1">
+			<aop:around method="invoke"	pointcut="execution(* *(..))"/>
+			配置一个切入点,相当于@Pointcut
+			<aop:pointcut expression="execution(* *(..))" id="simplePointcut"/>
+			<aop:before method="printStartTime"	pointcut-ref="simplePointcut"/>
+			<aop:after	method="printEndTime"	pointcut-ref="simplePointcut"/>
+		</aop:aspect>
+	</aop:config> -->
 	
 	
 	
