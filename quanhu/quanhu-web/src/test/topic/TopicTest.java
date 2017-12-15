@@ -40,7 +40,7 @@ public class TopicTest {
 	 
 	 @Test
 	 public void selectById(){
-		 Topic topic = topicService.selectById(92L);
+		 Topic topic = topicService.selectById(710L);
 		 System.out.println(topic);
 	 }
 	 

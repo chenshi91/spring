@@ -3,6 +3,7 @@ package com.quanhu.base.service.impl;
 
 import java.util.List;
 
+import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,8 @@ import com.quanhu.base.service.BaseService;
  * @author:   		chenshi
  */
 public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
+	
+	protected Logger logger = Logger.getLogger(BaseServiceImpl.class);
 	
 	private static final long serialVersionUID = -6649329735350511119L;
 
