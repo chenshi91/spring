@@ -14,4 +14,5 @@ import com.quanhu.topic.entity.Topic;
  */
 public interface TopicService extends BaseService<Topic> {
 	
+	void regist(Topic topic);
 }

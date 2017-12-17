@@ -1,6 +1,8 @@
 /**Created	by	chenshi  at	2017年12月17日 下午12:55:14*/
 package enums;
 
+import annotations.AnnotationTest;
+
 /**
  * @description:	CommonEnum.java
  * @packageName:	enums
@@ -33,6 +35,7 @@ public enum CommonEnum {
 	 * @return
 	 * @return CommonEnum
 	 */
+	@AnnotationTest(name="chenshi",value="123")
 	public CommonEnum getCommonEnumByValue(Byte value){
 		for (CommonEnum commonEnum : CommonEnum.values()) {
 			if(commonEnum.getValue().equals(value)){

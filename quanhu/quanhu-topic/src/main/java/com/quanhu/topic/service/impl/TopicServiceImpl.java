@@ -31,6 +31,11 @@ public class TopicServiceImpl extends BaseServiceImpl<Topic> implements TopicSer
 		return topicDao;
 	}
 
+	@Override
+	public void regist(Topic topic) {
+		System.out.println("-------------log---------");
+	}
+
 	
 
 	
