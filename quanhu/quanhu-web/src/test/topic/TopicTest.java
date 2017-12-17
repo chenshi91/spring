@@ -44,13 +44,13 @@ public class TopicTest {
 		 System.out.println(topic);
 	 }
 	 
-	 public static void main(String[] args) {
-		ApplicationContext	act=new	ClassPathXmlApplicationContext("/spring-mybatis.xml");
-		BasicDataSource	basicDataSource=(BasicDataSource)act.getBean("dataSource");
+	 @Test
+	 public void dataSource() {
+		BasicDataSource	basicDataSource=(BasicDataSource)ac.getBean("dataSource");
 		String password = basicDataSource.getPassword();
 		String url = basicDataSource.getUrl();
-		System.out.println(password);
-		System.out.println(url);
+		System.out.println("password:"+password);
+		System.out.println("url:"+url);
 		/*act.c*/
 	 }
 
