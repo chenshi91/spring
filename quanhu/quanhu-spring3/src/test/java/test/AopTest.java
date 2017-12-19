@@ -8,6 +8,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.quanhu.service.MyService;
+import com.quanhu.service.impl.MyServiceImpl2;
 
 /**
  * @description:	AopTest.java
@@ -19,11 +20,13 @@ import com.quanhu.service.MyService;
 public class AopTest {
 	ApplicationContext	ac=null;
 	MyService	myService=null;
+	MyServiceImpl2	myService2=null;
 	
 	@Before
 	public void createFactory(){
 		ac=new ClassPathXmlApplicationContext("/config/applicationContext.xml");
 		myService=(MyService)ac.getBean("myService");
+		myService2=(MyServiceImpl2)ac.getBean("myService2");
 	}
 	
 	@After
@@ -49,6 +52,9 @@ public class AopTest {
 		}
 	}
 	
-	
+	@Test
+	public void aopTest2(){
+		myService2.selectById(110L);
+	}
 	
 }

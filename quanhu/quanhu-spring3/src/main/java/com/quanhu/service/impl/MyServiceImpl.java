@@ -17,7 +17,6 @@ public class MyServiceImpl implements MyService {
 	 * @see com.quanhu.service.MyService#login()
 	 */
 	@Override
-	@Log("xyq")
 	public void login() {
 		System.out.println("service    login");
 	}
@@ -26,6 +25,7 @@ public class MyServiceImpl implements MyService {
 	 * @see com.quanhu.service.MyService#regist()
 	 */
 	@Override
+	@Log("xyq")
 	public void regist() {
 		System.out.println("service    regist");
 	}

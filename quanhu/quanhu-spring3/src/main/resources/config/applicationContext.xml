@@ -17,23 +17,24 @@
 	default-lazy-init="true">
 
 	<bean id="myService" class="com.quanhu.service.impl.MyServiceImpl" />
+	<bean id="myService2" class="com.quanhu.service.impl.MyServiceImpl2" />
 	<bean id="aop" class="com.quanhu.aop.Aop" />
 	<bean id="before2" class="com.quanhu.aop.Before2" />
 
 	<aop:config>
 		 <!-- 1,定义切入点  -->
-		 <aop:pointcut expression="execution(* *.MyServiceImpl.m2(..))" id="pct"/> 
+		 <aop:pointcut expression="execution(* com.quanhu.service.impl.MyServiceImpl.m2(..)) or @annotation(com.quanhu.annotations.Log)" id="pct"/> 
 		 <!-- 2,组装切面  -->
 		<aop:advisor advice-ref="aop" pointcut-ref="pct"/> 
 	</aop:config>
 
-	<!-- <aop:config proxy-target-class="true">
+	<aop:config proxy-target-class="true">
 		<aop:aspect id="asp" ref="before2">
-			<aop:pointcut id="testpc"	expression="execution(* com.quanhu.service.impl.*.*(..))" />
+			<aop:pointcut id="testpc"	expression="execution(* com.quanhu.service.impl.MyServiceImpl2.*(..))" />
 			<aop:before method="before" pointcut-ref="testpc" />
 			<aop:after method="after" pointcut-ref="testpc" />
 		</aop:aspect>
-	</aop:config> -->
+	</aop:config>
 
 
 
