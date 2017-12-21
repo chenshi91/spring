@@ -206,8 +206,8 @@
 
 
 	<modules>
-		<module>quanhu-spring1</module>
-		<module>quanhu-spring2</module>
+		<!-- <module>quanhu-spring1</module>
+		<module>quanhu-spring2</module> -->
 		<module>quanhu-base</module>
 		<module>quanhu-topic</module>
 		<module>quanhu-xyq</module>
@@ -216,6 +216,7 @@
 		<module>quanhu-user</module>
 		<module>quanhu-test2</module>
 		<module>quanhu-spring3</module>
+		<module>quanhu-mybatis</module>
 	</modules>
 
 </project>

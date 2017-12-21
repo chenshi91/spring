@@ -23,4 +23,6 @@ public abstract interface BaseService<T> extends Serializable {
 	 T		selectById(Long id);
 	
 	 List<T>	selectByIds(Long[] ids);
+	 
+	 List<T>	selectAll();
 }

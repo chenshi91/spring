@@ -13,13 +13,10 @@ import java.util.List;
 public abstract interface BaseDao<T	>{
 	
 	 void	insert(T	t)throws	Exception;
-	
 	 void	update(T	t)throws	Exception;
-	
 	 void	delete(Long	id)throws	Exception;
-	
 	 T		selectById(Long id);
-	
 	 List<T>	selectByIds(Long[] ids);
+	 List<T>	selectAll();
 	
 }

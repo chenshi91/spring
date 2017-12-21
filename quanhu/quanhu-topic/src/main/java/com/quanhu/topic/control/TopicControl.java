@@ -1,11 +1,13 @@
 
 package com.quanhu.topic.control;
 
-import org.apache.ibatis.annotations.Param;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quanhu.base.resource.BaseResource;
 import com.quanhu.base.service.BaseService;
@@ -40,10 +42,20 @@ public class TopicControl extends BaseResource<Topic> {
 	 * @param id
 	 * @return String
 	 */
-	@RequestMapping(value="selectById/{id}")
-	public	String	selectById(Model	model,@Param("id")Long	id){
+	@RequestMapping(value="selectById" )
+	public	String	selectById(Model	model,@RequestParam("id")Long	id){
 		Topic topic = topicService.selectById(id);
 		model.addAttribute("entity", topic);
+		return	"topic/topicList";
+	}
+	
+	@RequestMapping(value="list/all")
+	public String list(Model model){
+		List<Topic> list = topicService.selectAll();
+		model.addAttribute("list", list);
+		/*String aaa="sdsds";
+		aaa.substring(beginIndex, endIndex)
+		aaa.length()*/
 		return	"topic/topicList";
 	}
 	

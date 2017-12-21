@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC 
+	"-//mybatis.org//DTD Config 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-config.dtd" >
+<configuration>
+
+	<properties	resource="config/jdbc.properties"/>
+	
+	<!-- 运行环境，default指定默认使用的环境，必须同子标签中的id属性值 -->
+	<environments default="e1">
+		<!-- 1个运行环境,id唯一标识 -->
+		<environment id="e1">
+			<!-- 事务管理策略，type指定类型 可取值是JDBC|MANAGED -->
+			<transactionManager type="JDBC"></transactionManager>
+			<!-- 数据库的连接方式，type=POOLED代表使用mybatis自带的连接池 -->
+			<dataSource type="POOLED">
+				<property name="driver" value="${driver}"/>
+				<property name="url" value="${url}"/>
+				<property name="username" value="${username}"/>
+				<property name="password" value="${password}"/>
+			</dataSource>
+		</environment>
+	</environments>
+	
+	<!-- 注册Mapper映射文件 -->
+	<mappers>
+		<mapper resource="mapper/topicMapper.xml" />
+	</mappers>
+</configuration>

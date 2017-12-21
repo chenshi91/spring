@@ -79,5 +79,17 @@ public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
 		return	list;
 	};
 	
+	@Transactional(readOnly=true)
+	public List<T>	selectAll(){
+		List<T> list=null;
+		try {
+			 list= getDao().selectAll();
+		} catch (Exception e) {
+			System.out.println("baseService逻辑异常!");
+			e.printStackTrace();
+		}
+		return	list;
+	};
+	
 	
 }
