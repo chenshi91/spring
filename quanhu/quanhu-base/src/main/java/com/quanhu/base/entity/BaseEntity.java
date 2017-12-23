@@ -3,6 +3,8 @@ package com.quanhu.base.entity;
 
 import java.util.Date;
 
+import com.quanhu.base.enums.CommonEnum;
+
 /**
  * @description:	BaseEntity.java
  * @packageName:	com.quanhu.activie.base.entity
@@ -27,6 +29,8 @@ public abstract class BaseEntity extends IdEntity {
 	private	Byte	recommend;
 	
 	private	Byte	revison;
+	
+	private	CommonEnum	commonEnum;
 
 	public String getCreateUserId() {
 		return createUserId;
@@ -85,17 +89,29 @@ public abstract class BaseEntity extends IdEntity {
 	}
 
 	
+	public CommonEnum getCommonEnum() {
+		return commonEnum;
+	}
+
+	public void setCommonEnum(CommonEnum commonEnum) {
+		this.commonEnum = commonEnum;
+	}
+
+	/* 
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
-		return "BaseEntity ["
-				+ (createUserId != null ? "createUserId=" + createUserId + ", " : "")
+		return "BaseEntity [" + (createUserId != null ? "createUserId=" + createUserId + ", " : "")
 				+ (lastUpdateUserId != null ? "lastUpdateUserId=" + lastUpdateUserId + ", " : "")
 				+ (createDate != null ? "createDate=" + createDate + ", " : "")
 				+ (lastUpdateDate != null ? "lastUpdateDate=" + lastUpdateDate + ", " : "")
 				+ (shelveFlag != null ? "shelveFlag=" + shelveFlag + ", " : "")
 				+ (recommend != null ? "recommend=" + recommend + ", " : "")
-				+ (revison != null ? "revison=" + revison : "") + "]";
+				+ (revison != null ? "revison=" + revison + ", " : "")
+				+ (commonEnum != null ? "commonEnum=" + commonEnum : "") + "]";
 	}
+
 
 	
 	

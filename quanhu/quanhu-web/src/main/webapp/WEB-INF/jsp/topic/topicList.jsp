@@ -9,10 +9,10 @@
 <title>话题列表</title>
 </head>
 <body>
-	<h1>springMVC成功!</h1>
-	<div	style="color: red">斗鱼tv</div>
+	<h1>后台管理系统</h1>
+	<div	style="color: red">话题管理</div>
 	<div>
-		<table>
+		<table	border="1" style="table-layout:fixed;">
 			<tr>
 				<th>id</th>
 				<th>标题</th>
@@ -24,6 +24,7 @@
 				<th>创建人id</th>
 				<th>创建时间</th>
 				<th>上次更新时间</th>
+				<th>操作</th>
 			</tr>
 			<c:if test="${list.isEmpty() }">
 				<tr>
@@ -31,17 +32,18 @@
 				</tr>
 			</c:if>
 			<c:forEach	items="${list }"	var="entity">
-				<tr	bgcolor="green">
+				<tr	bgcolor="${entity.commonEnum.color }">
 					<td	style="  "	align="center">${entity.id }</td>
 					<td	style="  "	align="center">${entity.title }</td>
 					<td	style="  "	align="center">${entity.content.length()>30?entity.content.substring(0,30):entity.content }</td>
 					<td	style="  "	align="center"><%-- ${entity.imgUrl } --%></td>
-					<td	style="  "	align="center">${entity.recommend }</td>
-					<td	style="  "	align="center">${entity.shelveFlag }</td>
+					<td	style="  "	align="center">${entity.recommend==0?'不推荐':'推荐' }</td>
+					<td	style="  "	align="center">${entity.commonEnum.key }</td>
 					<td	style="  "	align="center"><%-- ${entity.heat } --%></td>
 					<td	style="  "	align="center">${entity.createUserId }</td>
 					<td	style="  "	align="center">${entity.createDate }</td>
 					<td	style="  "	align="center">${entity.lastUpdateDate }</td>
+					<td	style="  "	align="center"><input	type="button"	value="添加"><input	type="button"	value="修改"></td>
 				</tr>
 			</c:forEach>
 		</table>

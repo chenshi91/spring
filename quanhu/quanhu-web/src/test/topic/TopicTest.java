@@ -2,6 +2,8 @@
 package topic;
 
 
+import java.util.List;
+
 import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.After;
 import org.junit.Before;
@@ -42,6 +44,12 @@ public class TopicTest {
 	 public void selectById(){
 		 Topic topic = topicService.selectById(710L);
 		 System.out.println(topic);
+	 }
+	 
+	 @Test
+	 public void selectAll(){
+		 List<Topic> list = topicService.selectAll();
+		 System.out.println(list.size());
 	 }
 	 
 	 @Test

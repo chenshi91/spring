@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.quanhu.base.enums.CommonEnum;
 import com.quanhu.base.resource.BaseResource;
 import com.quanhu.base.service.BaseService;
 import com.quanhu.topic.entity.Topic;
@@ -52,6 +53,19 @@ public class TopicControl extends BaseResource<Topic> {
 	@RequestMapping(value="list/all")
 	public String list(Model model){
 		List<Topic> list = topicService.selectAll();
+		for (Topic topic : list) {
+			//设置枚举属性
+			if(topic.getShelveFlag()!=null){
+				if(topic.getShelveFlag()==CommonEnum.SHELVE_ON.getValue()){
+					topic.setCommonEnum(CommonEnum.SHELVE_ON);
+				}else if (topic.getShelveFlag()==CommonEnum.SHELVE_OFF.getValue()) {
+					topic.setCommonEnum(CommonEnum.SHELVE_OFF);
+				}else {
+					topic.setCommonEnum(CommonEnum.UN_KNOW);
+//					topic.setShelveFlag(CommonEnum.SHELVE_ON.getValue());
+				}		
+			}
+		}
 		model.addAttribute("list", list);
 		/*String aaa="sdsds";
 		aaa.substring(beginIndex, endIndex)
