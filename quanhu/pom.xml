@@ -217,6 +217,7 @@
 		<module>quanhu-test2</module>
 		<module>quanhu-spring3</module>
 		<module>quanhu-mybatis</module>
+		<module>quanhu-spring4</module>
 	</modules>
 
 </project>
