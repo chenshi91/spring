@@ -19,7 +19,7 @@ import com.quanhu.entity.User;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class Spring4Test {
+public class JdbcTemplateTest {
 	private ApplicationContext act;
 	private UserDao	userDao; 
 	@Before
@@ -44,7 +44,7 @@ public class Spring4Test {
 	
 	@Test
 	public	void updateUser(){
-		userDao.update(new User(3L, "zhengmang", "chens"));
+		System.out.println("updateUser,dao返回值:"+userDao.update(new User(3L, "zhengmang", "chens")));
 	}
 	
 	@Test

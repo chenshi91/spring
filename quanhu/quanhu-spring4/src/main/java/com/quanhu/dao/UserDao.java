@@ -13,9 +13,9 @@ import com.quanhu.entity.User;
  * @author:   		chenshi
  */
 public interface UserDao {
-	void	insert(User user);
-	void	delete(Long id);
-	void	update(User user);
+	Byte	insert(User user);
+	Byte	delete(Long id);
+	Byte	update(User user);
 	User	selectByUsernameAndPassword(String userName,String passWord);
 	List<User>	listByPage(Byte pageNo,Byte pageSize);
 }

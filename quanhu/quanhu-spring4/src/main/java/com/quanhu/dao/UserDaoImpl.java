@@ -36,8 +36,8 @@ public class UserDaoImpl  implements UserDao {
 	
 	
 	@Override
-	public void insert(User user) {
-		jdbcTemplate.update(INSERT_USER, user.getUserName(),user.getPassWord());
+	public Byte insert(User user) {
+		return	(byte) jdbcTemplate.update(INSERT_USER, user.getUserName(),user.getPassWord());
 	}
 	
 	
@@ -45,16 +45,16 @@ public class UserDaoImpl  implements UserDao {
 	 * @see com.quanhu.dao.UserDao#delete(java.lang.Long)
 	 */
 	@Override
-	public void delete(Long id) {
-		jdbcTemplate.update(DELETE_USER,id);
+	public Byte delete(Long id) {
+		return	(byte)jdbcTemplate.update(DELETE_USER,id);
 	}
 
 	/* 
 	 * @see com.quanhu.dao.UserDao#update(com.quanhu.entity.User)
 	 */
 	@Override
-	public void update(User user) {
-		jdbcTemplate.update(UPDATE_USER, user.getUserName(),user.getPassWord(),user.getId());
+	public Byte update(User user) {
+		return	(byte)jdbcTemplate.update(UPDATE_USER, user.getUserName(),user.getPassWord(),user.getId());
 	}
 
 	/* 
