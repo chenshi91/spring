@@ -3,11 +3,12 @@ package com.quanhu.topic.control;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.quanhu.base.enums.CommonEnum;
 import com.quanhu.base.resource.BaseResource;
@@ -29,7 +30,7 @@ public class TopicControl extends BaseResource<Topic> {
 
 	private static final long serialVersionUID = -2930691891893312591L;
 	
-	@Autowired
+	@Resource(name="topicService")
 	TopicService	topicService;
 
 	@Override
@@ -44,15 +45,19 @@ public class TopicControl extends BaseResource<Topic> {
 	 * @return String
 	 */
 	@RequestMapping(value="selectById" )
-	public	String	selectById(Model	model,@RequestParam("id")Long	id){
+	public	String	selectById(Model	model,Long	id){
 		Topic topic = topicService.selectById(id);
 		model.addAttribute("entity", topic);
-		return	"topic/topicList";
+		return	"topic/postList";
 	}
 	
 	@RequestMapping(value="list/all")
 	public String list(Model model){
-		List<Topic> list = topicService.selectAll();
+		List<Topic> list = topicService.listByPage((byte)3, (byte)10);
+		if(CollectionUtils.isEmpty(list)){
+			model.addAttribute("list", list);
+			return	"topic/topicList";
+		}
 		for (Topic topic : list) {
 			//设置枚举属性
 			if(topic.getShelveFlag()!=null){

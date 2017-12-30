@@ -4,6 +4,7 @@ package com.quanhu.base.service.impl;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,68 +26,81 @@ public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
 
 	public abstract	BaseDao<T>	getDao();
 	
-	@Transactional(propagation=Propagation.SUPPORTS)
+	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.READ_COMMITTED,readOnly=false)
 	public void	insert(T	t)throws	Exception{
 		try {
 			getDao().insert(t);
 		} catch (Exception e) {
-			System.out.println("baseService逻辑异常!");
+			logger.info("baseService----------insert逻辑异常!");
 			e.printStackTrace();
 		}
 	};
 	
-	@Transactional(propagation=Propagation.SUPPORTS)
+	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.READ_COMMITTED,readOnly=false)
 	public void	update(T	t)throws	Exception{
 		try {
 			getDao().update(t);
 		} catch (Exception e) {
-			System.out.println("baseService逻辑异常!");
+			logger.info("baseService----------update逻辑异常!");
 			e.printStackTrace();
 		}
 	};
 	
-	@Transactional(propagation=Propagation.SUPPORTS)
+	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.READ_COMMITTED,readOnly=false)
 	public void	delete(Long	id)throws	Exception{
 		try {
 			getDao().delete(id);
 		} catch (Exception e) {
-			System.out.println("baseService逻辑异常!");
+			logger.info("baseService----------delete逻辑异常!");
 			e.printStackTrace();
 		}
 	};
 	
-	@Transactional(readOnly=true)
+	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public T		selectById(Long id){
 		T	t=null;
 		try {
 			t = getDao().selectById(id);
 		} catch (Exception e) {
-			System.out.println("baseService逻辑异常!");
+			logger.info("baseService----------selectById逻辑异常!");
 			e.printStackTrace();
 		}
 		return	t;
 	};
 	
-	@Transactional(readOnly=true)
+	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public List<T>	selectByIds(Long[] ids){
 		List<T> list=null;
 		try {
 			 list= getDao().selectByIds(ids);
 		} catch (Exception e) {
-			System.out.println("baseService逻辑异常!");
+			logger.info("baseService----------selectByIds逻辑异常!");
 			e.printStackTrace();
 		}
 		return	list;
 	};
 	
-	@Transactional(readOnly=true)
+	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public List<T>	selectAll(){
 		List<T> list=null;
 		try {
 			 list= getDao().selectAll();
 		} catch (Exception e) {
-			System.out.println("baseService逻辑异常!");
+			logger.info("baseService----------selectAll逻辑异常!");
 			e.printStackTrace();
+		}
+		return	list;
+	};
+	
+	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
+	public List<T>	listByPage(Byte pageNo,Byte pageSize){
+		List<T> list=null;
+		try {
+			list= getDao().listByPage((pageNo-1)*pageSize,pageSize);
+		} catch (Exception e) {
+			logger.info("baseService----------listByPage逻辑异常!");
+			e.printStackTrace();
+		}finally {
 		}
 		return	list;
 	};

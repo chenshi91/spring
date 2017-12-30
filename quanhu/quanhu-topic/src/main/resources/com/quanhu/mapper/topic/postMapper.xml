@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.quanhu.topic.dao.TopicDao">
+<mapper namespace="com.quanhu.topic.dao.PostDao">
 
-	<sql id="table_name">yryz_topic</sql>
+	<sql id="table_name">yryz_topic_post</sql>
 	<sql id="table_files">*</sql>
 	
-	<resultMap type="com.quanhu.topic.entity.Topic" id="outEntity">
+	<resultMap type="com.quanhu.topic.entity.Post" id="outEntity">
 		<id	column="id" property="id"/>
-		<result	column="title" property="title"/>
 		<result	column="content" property="content"/>
 		<result	column="img_url" property="imgUrl"/>
 		<result	column="shelve_flag" property="shelveFlag"/>
@@ -34,10 +33,6 @@
 		limit #{pageNo },#{pageSize}
 	</select>
 	
-	<select id="selectByTitlt"	resultMap="outEntity"	parameterMap="String">
-		select	<include refid="table_files"/> from	<include refid="table_name"/>
-		where	title	like	concat(concat('%',#{title}),'%')
-	</select>
 	
 	<!-- <select id="selectByCondition"	parameterMap="inEntity"	resultMap="outEntity">
 		select	<include refid="table_files"/> from	<include refid="table_name"/>

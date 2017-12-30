@@ -3,6 +3,8 @@ package com.quanhu.base.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 /**
  * @description:	BaseDao.java
  * @packageName:	com.quanhu.activie.base.dao
@@ -11,12 +13,11 @@ import java.util.List;
  * @author:   		chenshi
  */
 public abstract interface BaseDao<T	>{
-	
-	 void	insert(T	t)throws	Exception;
-	 void	update(T	t)throws	Exception;
-	 void	delete(Long	id)throws	Exception;
+	 Byte	insert(T	t)throws	Exception;
+	 Byte	update(T	t)throws	Exception;
+	 Byte	delete(Long	id)throws	Exception;
 	 T		selectById(Long id);
 	 List<T>	selectByIds(Long[] ids);
 	 List<T>	selectAll();
-	
+	 List<T>	listByPage(@Param("pageNo")int pageNo,@Param("pageSize")int pageSize);
 }

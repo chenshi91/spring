@@ -48,8 +48,10 @@
 	<tx:advice	id="txm"	transaction-manager="transactionManager">
 		<tx:attributes>
 			<!-- 事务属性:1隔离属性;2传播属性;3超时属性;4异常属性;5只读属性 -->
-			<tx:method name="login"	read-only="true" propagation="SUPPORTS" isolation="READ_COMMITTED" timeout="-1"	rollback-for="java.lang.Exception"/>
-			<tx:method name="regist"/>
+			<!-- 方法名以select..和update..开头的添加各自的事务属性 -->
+			<tx:method name="select*"	isolation="READ_COMMITTED" propagation="SUPPORTS" timeout="-1"	rollback-for="java.lang.Exception" read-only="true" />
+			<tx:method name="update*"/>
+			<tx:method name="delete*"/>
 		</tx:attributes>
 	</tx:advice>
 	

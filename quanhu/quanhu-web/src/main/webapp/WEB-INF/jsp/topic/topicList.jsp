@@ -14,6 +14,7 @@
 	<div>
 		<table	border="1" style="table-layout:fixed;">
 			<tr>
+				<th></th>
 				<th>id</th>
 				<th>标题</th>
 				<th>内容</th>
@@ -33,8 +34,9 @@
 			</c:if>
 			<c:forEach	items="${list }"	var="entity">
 				<tr	bgcolor="${entity.commonEnum.color }">
+					<td	style="  "	align="center"><input	type="checkbox"/></td>
 					<td	style="  "	align="center">${entity.id }</td>
-					<td	style="  "	align="center">${entity.title }</td>
+					<td	style="  "	align="center"><a	href="${ctx}/quanhu-web/v1/admin/post/list?topicId=${entity.id }">${entity.title }</a></td>
 					<td	style="  "	align="center">${entity.content.length()>30?entity.content.substring(0,30):entity.content }</td>
 					<td	style="  "	align="center"><%-- ${entity.imgUrl } --%></td>
 					<td	style="  "	align="center">${entity.recommend==0?'不推荐':'推荐' }</td>

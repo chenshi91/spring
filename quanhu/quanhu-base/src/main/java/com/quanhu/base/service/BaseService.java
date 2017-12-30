@@ -13,16 +13,11 @@ import java.util.List;
  * @author:   		chenshi
  */
 public abstract interface BaseService<T> extends Serializable {
-
 	 void	insert(T	t)throws	Exception;
-	
 	 void	update(T	t)throws	Exception;
-	
 	 void	delete(Long	id)throws	Exception;
-	
 	 T		selectById(Long id);
-	
 	 List<T>	selectByIds(Long[] ids);
-	 
 	 List<T>	selectAll();
+	 List<T>	listByPage(Byte pageNo,Byte pageSize);
 }
