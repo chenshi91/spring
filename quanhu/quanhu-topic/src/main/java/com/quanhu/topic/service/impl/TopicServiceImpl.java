@@ -7,6 +7,8 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.quanhu.base.dao.BaseDao;
 import com.quanhu.base.service.impl.BaseServiceImpl;
@@ -23,6 +25,7 @@ import com.quanhu.topic.service.TopicService;
  * @author:   		chenshi
  */
 @Service(value="topicService")
+@Transactional
 public class TopicServiceImpl extends BaseServiceImpl<Topic> implements TopicService,ApplicationContextAware {
 	private static final long serialVersionUID = -2023936616758359946L;
 	ApplicationContext	ac;
@@ -39,6 +42,7 @@ public class TopicServiceImpl extends BaseServiceImpl<Topic> implements TopicSer
 	}
 
 	@Override
+	@Transactional(propagation=Propagation.SUPPORTS,readOnly=true)
 	public void regist(Topic topic) {
 		TopicService	topicService=(TopicService) ac.getBean("topicService");
 		topicService.selectById(15L);

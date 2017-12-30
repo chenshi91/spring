@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.quanhu.dao.UserDao">
+
+	<sql id="table_name">test_user</sql>
+	<sql id="table_files">*</sql>
+	
+	<resultMap type="com.quanhu.entity.User" id="outEntity">
+		<id	column="id" property="id"/>
+		<result	column="user_name" property="userName"/>
+		<result	column="pass_word" property="passWord"/>
+	</resultMap>
+	
+	<parameterMap type="java.lang.Long" id="Long"/>	
+	<parameterMap type="java.lang.String" id="String"/>
+		
+		
+	<select id="selectById"	parameterMap="Long"	resultMap="outEntity">
+		select	<include refid="table_files"/> from	<include refid="table_name"/>	
+		where id=#{id}
+	</select>
+	
+	<select id="selectAll"	resultMap="outEntity">
+		select	<include refid="table_files"/> from	<include refid="table_name"/>
+	</select>
+	
+	<select id="listByPage"	resultMap="outEntity"	parameterType="java.util.Map">
+		select	<include refid="table_files"/> from	<include refid="table_name"/>
+		limit #{pageNo },#{pageSize}
+	</select>
+	
+	
+	<!-- <select id="selectByCondition"	parameterMap="inEntity"	resultMap="outEntity">
+		select	<include refid="table_files"/> from	<include refid="table_name"/>
+		<where>
+			<if test="inEntity.title!=null and inEntity.title!=''">
+				<bind name="title" value="'%'+_parameter.getTitle()+'%'"/>
+				and		title	like	#{title}
+			</if>
+		</where>
+		<if test="page==true">
+			limit	#{page.firstRecord},#{page.maxRecord}
+		</if>
+	</select>
+	
+	<select id="selectByConditionForCount"	parameterMap="inEntity"	resultMap="Long">
+		select	<include refid="table_files"/> from	<include refid="table_name"/>
+		<where>
+			<if test="inEntity.title!=null and inEntity.title!=''">
+				<bind name="title" value="'%'+_parameter.getTitle()+'%'"/>
+				and		title	like	#{title}
+			</if>
+		</where>
+		
+	</select>
+	
+	<insert id="insert"	parameterMap="entity"	useGeneratedKeys="true"	keyColumn="id"	keyProperty="id">
+		insert into	<include refid="table_name"/>(<include refid="table_files"/>)
+		values(null,#{})
+	</insert>
+	
+	<update id="update"	parameterMap="entity">
+		update	<include refid="table_name"/>
+		<set>
+			
+		</set>
+	</update> -->
+	
+</mapper>

@@ -219,6 +219,7 @@
 		<module>quanhu-mybatis</module>
 		<module>quanhu-spring4</module>
 		<module>quanhu-spring5</module>
+		<module>xunlianying-annotation</module>
 	</modules>
 
 </project>
