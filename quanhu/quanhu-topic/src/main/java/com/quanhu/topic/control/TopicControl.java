@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quanhu.base.enums.CommonEnum;
 import com.quanhu.base.resource.BaseResource;
@@ -51,9 +52,9 @@ public class TopicControl extends BaseResource<Topic> {
 		return	"topic/postList";
 	}
 	
-	@RequestMapping(value="list/all")
+	@RequestMapping(value="list/all",method=RequestMethod.GET)
 	public String list(Model model){
-		List<Topic> list = topicService.listByPage((byte)3, (byte)10);
+		List<Topic> list = topicService.listByPage((byte)1, (byte)10);
 		if(CollectionUtils.isEmpty(list)){
 			model.addAttribute("list", list);
 			return	"topic/topicList";
@@ -75,7 +76,7 @@ public class TopicControl extends BaseResource<Topic> {
 		/*String aaa="sdsds";
 		aaa.substring(beginIndex, endIndex)
 		aaa.length()*/
-		return	"topic/topicList";
+		return	"forward:/topic/topicList.jsp";
 	}
 	
 

@@ -4,11 +4,16 @@ package com.quanhu.base.service.impl;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.springframework.dao.DataAccessException;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.quanhu.base.annotations.RedisAnnotation;
 import com.quanhu.base.dao.BaseDao;
+import com.quanhu.base.exception.DaoException;
+import com.quanhu.base.exception.ServiceException;
+import com.quanhu.base.exception.SystemException;
 import com.quanhu.base.service.BaseService;
 
 /**
@@ -56,6 +61,7 @@ public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
 		}
 	};
 	
+	@RedisAnnotation(effectiveTime = "24*60*60")
 	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public T		selectById(Long id){
 		T	t=null;
@@ -92,15 +98,24 @@ public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
 		return	list;
 	};
 	
+	@RedisAnnotation(effectiveTime = "24*60*60")
 	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public List<T>	listByPage(Byte pageNo,Byte pageSize){
 		List<T> list=null;
 		try {
+			if(pageNo==null||pageSize==null||pageNo<1||pageSize<1){
+				throw	new	ServiceException("pageNo或pageSize输入不符合规范");
+			}
 			list= getDao().listByPage((pageNo-1)*pageSize,pageSize);
-		} catch (Exception e) {
-			logger.info("baseService----------listByPage逻辑异常!");
+		}catch (DataAccessException e) {
 			e.printStackTrace();
-		}finally {
+			throw	new	DaoException("dao层:listByPage()出现异常");
+		}catch (ServiceException e) {
+			e.printStackTrace();
+			throw	new	ServiceException("service层:listByPage()出现异常");
+		}catch (Exception e) {
+			e.printStackTrace();
+			throw	new	SystemException("系统出现异常");
 		}
 		return	list;
 	};

@@ -4,6 +4,7 @@ package com.quanhu.base.dao;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
+import org.springframework.dao.DataAccessException;
 
 /**
  * @description:	BaseDao.java
@@ -13,11 +14,11 @@ import org.apache.ibatis.annotations.Param;
  * @author:   		chenshi
  */
 public abstract interface BaseDao<T	>{
-	 Byte	insert(T	t)throws	Exception;
-	 Byte	update(T	t)throws	Exception;
-	 Byte	delete(Long	id)throws	Exception;
-	 T		selectById(Long id);
-	 List<T>	selectByIds(Long[] ids);
-	 List<T>	selectAll();
-	 List<T>	listByPage(@Param("pageNo")int pageNo,@Param("pageSize")int pageSize);
+	 Byte	insert(T	t)throws	DataAccessException;
+	 Byte	update(T	t)throws	DataAccessException;
+	 Byte	delete(Long	id)throws	DataAccessException;
+	 T		selectById(Long id)throws	DataAccessException;;
+	 List<T>	selectByIds(Long[] ids)throws	DataAccessException;;
+	 List<T>	selectAll()throws	DataAccessException;;
+	 List<T>	listByPage(@Param("pageNo")int pageNo,@Param("pageSize")int pageSize)throws	DataAccessException;;
 }

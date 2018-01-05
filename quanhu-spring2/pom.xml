@@ -7,11 +7,5 @@
     <artifactId>quanhu</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  
   <artifactId>quanhu-spring2</artifactId>
-  <name>quanhu-spring2</name>
-  
-  <dependencies>
-   
-  </dependencies>
 </project>
