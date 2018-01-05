@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.quanhu.base.annotations.RedisAnnotation;
 import com.quanhu.base.dao.BaseDao;
+import com.quanhu.base.entity.IdEntity;
 import com.quanhu.base.exception.DaoException;
 import com.quanhu.base.exception.ServiceException;
 import com.quanhu.base.exception.SystemException;
@@ -23,7 +24,7 @@ import com.quanhu.base.service.BaseService;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
+public abstract class BaseServiceImpl<T	extends IdEntity>	implements	BaseService<T> {
 	
 	protected Logger logger = Logger.getLogger(BaseServiceImpl.class);
 	
@@ -32,56 +33,103 @@ public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
 	public abstract	BaseDao<T>	getDao();
 	
 	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.READ_COMMITTED,readOnly=false)
-	public void	insert(T	t)throws	Exception{
+	public void	insert(T	t){
+		if(t==null){
+			throw	new	ServiceException("insert对象不能为空");
+		}
 		try {
 			getDao().insert(t);
-		} catch (Exception e) {
-			logger.info("baseService----------insert逻辑异常!");
+		} catch (DataAccessException e) {
 			e.printStackTrace();
+			throw	new	DaoException("dao层:insert()出现异常");
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			throw	new	ServiceException("service层:insert()出现异常");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw	new	SystemException("系统出现异常");
 		}
 	};
 	
 	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.READ_COMMITTED,readOnly=false)
-	public void	update(T	t)throws	Exception{
+	public void	update(T	t){
+		if(t==null){
+			throw	new	ServiceException("update对象不能为空");
+		}else if (t.getId()==null) {
+			throw	new	ServiceException("update id不能为空");
+		}
 		try {
 			getDao().update(t);
-		} catch (Exception e) {
-			logger.info("baseService----------update逻辑异常!");
+		} catch (DataAccessException e) {
 			e.printStackTrace();
+			throw	new	DaoException("dao层:update()出现异常");
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			throw	new	ServiceException("service层:update()出现异常");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw	new	SystemException("系统出现异常");
 		}
 	};
 	
 	@Transactional(propagation=Propagation.REQUIRED,isolation=Isolation.READ_COMMITTED,readOnly=false)
-	public void	delete(Long	id)throws	Exception{
+	public void	delete(Long	id){
+		if(id==null){
+			throw	new	ServiceException("delete id不能为空");
+		}
 		try {
 			getDao().delete(id);
-		} catch (Exception e) {
-			logger.info("baseService----------delete逻辑异常!");
+		} catch (DataAccessException e) {
 			e.printStackTrace();
+			throw	new	DaoException("dao层:delete()出现异常");
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			throw	new	ServiceException("service层:delete()出现异常");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw	new	SystemException("系统出现异常");
 		}
 	};
 	
 	@RedisAnnotation(effectiveTime = "24*60*60")
 	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public T		selectById(Long id){
+		if(id==null){
+			throw	new	ServiceException("selectById id不能为空");
+		}
 		T	t=null;
 		try {
 			t = getDao().selectById(id);
-		} catch (Exception e) {
-			logger.info("baseService----------selectById逻辑异常!");
+		} catch (DataAccessException e) {
 			e.printStackTrace();
+			throw	new	DaoException("dao层:selectById()出现异常");
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			throw	new	ServiceException("service层:selectById()出现异常");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw	new	SystemException("系统出现异常");
 		}
 		return	t;
 	};
 	
 	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public List<T>	selectByIds(Long[] ids){
+		if(ids==null){
+			throw	new	ServiceException("selectByIds ids不能为空");
+		}
 		List<T> list=null;
 		try {
 			 list= getDao().selectByIds(ids);
-		} catch (Exception e) {
-			logger.info("baseService----------selectByIds逻辑异常!");
+		} catch (DataAccessException e) {
 			e.printStackTrace();
+			throw	new	DaoException("dao层:selectByIds()出现异常");
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			throw	new	ServiceException("service层:selectByIds()出现异常");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw	new	SystemException("系统出现异常");
 		}
 		return	list;
 	};
@@ -91,9 +139,15 @@ public abstract class BaseServiceImpl<T>	implements	BaseService<T> {
 		List<T> list=null;
 		try {
 			 list= getDao().selectAll();
-		} catch (Exception e) {
-			logger.info("baseService----------selectAll逻辑异常!");
+		} catch (DataAccessException e) {
 			e.printStackTrace();
+			throw	new	DaoException("dao层:selectAll()出现异常");
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			throw	new	ServiceException("service层:selectAll()出现异常");
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw	new	SystemException("系统出现异常");
 		}
 		return	list;
 	};

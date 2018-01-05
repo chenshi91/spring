@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.quanhu.base.resource.BaseResource;
+import com.quanhu.base.resource.BaseController;
 import com.quanhu.base.service.BaseService;
 import com.quanhu.topic.entity.Post;
 import com.quanhu.topic.service.PostService;
@@ -23,7 +23,7 @@ import com.quanhu.topic.service.PostService;
  */
 @RequestMapping(value="v1/admin/post")
 @Controller
-public class PostControal extends BaseResource<Post> {
+public class PostControal extends BaseController<Post> {
 
 	/***/
 	private static final long serialVersionUID = 1377873264540106576L;

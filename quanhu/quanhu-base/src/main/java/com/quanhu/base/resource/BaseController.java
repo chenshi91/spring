@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.quanhu.base.entity.IdEntity;
 import com.quanhu.base.service.BaseService;
 
 /**
@@ -16,7 +17,7 @@ import com.quanhu.base.service.BaseService;
  * @author:   		chenshi
  */
 @SuppressWarnings("serial")
-public abstract class BaseResource<T> implements Serializable {
+public abstract class BaseController<T	extends IdEntity> implements Serializable {
 	public	abstract	BaseService<T>	getService();
 	
 	@RequestMapping("base/insert")

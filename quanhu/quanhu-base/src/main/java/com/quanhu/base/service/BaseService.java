@@ -4,6 +4,9 @@ package com.quanhu.base.service;
 import java.io.Serializable;
 import java.util.List;
 
+import com.quanhu.base.entity.IdEntity;
+import com.quanhu.base.exception.ServiceException;
+
 
 /**
  * @description:	BaseService.java
@@ -12,12 +15,12 @@ import java.util.List;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public abstract interface BaseService<T> extends Serializable {
-	 void	insert(T	t)throws	Exception;
-	 void	update(T	t)throws	Exception;
-	 void	delete(Long	id)throws	Exception;
-	 T		selectById(Long id);
-	 List<T>	selectByIds(Long[] ids);
-	 List<T>	selectAll();
-	 List<T>	listByPage(Byte pageNo,Byte pageSize);
+public abstract interface BaseService<T	extends IdEntity> extends Serializable {
+	 void	insert(T	t)throws	ServiceException;
+	 void	update(T	t)throws	ServiceException;
+	 void	delete(Long	id)throws	ServiceException;
+	 T		selectById(Long id)throws	ServiceException;
+	 List<T>	selectByIds(Long[] ids)throws	ServiceException;
+	 List<T>	selectAll()throws	ServiceException;
+	 List<T>	listByPage(Byte pageNo,Byte pageSize)throws	ServiceException;
 }

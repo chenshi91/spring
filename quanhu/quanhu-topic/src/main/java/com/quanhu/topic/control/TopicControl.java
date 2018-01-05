@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quanhu.base.enums.CommonEnum;
-import com.quanhu.base.resource.BaseResource;
+import com.quanhu.base.resource.BaseController;
 import com.quanhu.base.service.BaseService;
 import com.quanhu.topic.entity.Topic;
 import com.quanhu.topic.service.TopicService;
@@ -27,7 +27,7 @@ import com.quanhu.topic.service.TopicService;
  */
 @RequestMapping(value="v1/admin/topic")
 @Controller
-public class TopicControl extends BaseResource<Topic> {
+public class TopicControl extends BaseController<Topic> {
 
 	private static final long serialVersionUID = -2930691891893312591L;
 	
@@ -76,7 +76,7 @@ public class TopicControl extends BaseResource<Topic> {
 		/*String aaa="sdsds";
 		aaa.substring(beginIndex, endIndex)
 		aaa.length()*/
-		return	"forward:/topic/topicList.jsp";
+		return	"topic/topicList";
 	}
 	
 
