@@ -31,7 +31,7 @@ import redis.clients.jedis.ShardedJedisPool;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-@Component
+//@Component
 @Aspect
 public class RedisCash {
 	
@@ -59,10 +59,10 @@ public class RedisCash {
 		}
 		
 		/**2.2如果缓存里面没有数据,则调用业务方法,并以键值对形式存入redis缓存*/
-		logger.info("--------service----start:"+target.getClass()+"."+method.getName());
-		Date startDate = new	Date();
+//		logger.info("--------service----start:"+target.getClass()+"."+method.getName());
+//		Date startDate = new	Date();
 		Object proceed = pjp.proceed();
-		logger.info("--------service----end:"+target.getClass()+"."+method.getName()+",耗时毫秒数:"+(new Date().getTime()-startDate.getTime()));
+//		logger.info("--------service----end:"+target.getClass()+"."+method.getName()+",耗时毫秒数:"+(new Date().getTime()-startDate.getTime()));
 		shardedJedis.set(key, JSON.toJSONString(proceed));
 		
 		/**3,归还redis连接给连接池*/

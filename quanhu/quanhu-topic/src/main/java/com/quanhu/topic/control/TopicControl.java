@@ -79,5 +79,10 @@ public class TopicControl extends BaseController<Topic> {
 		return	"topic/topicList";
 	}
 	
+	@RequestMapping(value="pagelist",method=RequestMethod.GET)
+	public	String	listByPage(Byte pageNo,Byte pageSize,Model model){
+		return	listByPage(pageNo, pageSize, model, "topic/topicList");
+	}
+	
 
 }

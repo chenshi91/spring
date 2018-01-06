@@ -32,7 +32,7 @@ public class ServiceLogAop {
 		logger.info("--------service----start:"+target.getClass()+"."+method.getName());
 		Date startDate = new	Date();
 		Object proceed = pjp.proceed();
-		logger.info("--------service----end:"+target.getClass()+"."+method.getName()+",耗时毫秒数:"+(new Date().getTime()-startDate.getTime()));
+		logger.info("--------service----end:"+target.getClass()+"."+method.getName()+",耗时秒数:"+(new Date().getTime()-startDate.getTime())/1000+"秒");
 		return	proceed;
 	}
 	
