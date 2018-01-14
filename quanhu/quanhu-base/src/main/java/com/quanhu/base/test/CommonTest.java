@@ -1,7 +1,6 @@
 /**Created	by	chenshi  at	2017年12月30日 下午8:48:09*/
 package com.quanhu.base.test;
 
-import org.junit.After;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -20,8 +19,7 @@ public class CommonTest {
 		return	this.ac=new	ClassPathXmlApplicationContext(xmlUrl);
 	}
 	
-	@After
-	public	void	after(){
+	public	void	closeApplicationContext(){
 		ac=null;
 	}
 

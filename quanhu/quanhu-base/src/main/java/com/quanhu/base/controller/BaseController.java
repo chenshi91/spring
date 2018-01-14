@@ -1,11 +1,12 @@
 /**Created	by	chenshi  at	2017年12月1日 上午10:54:10*/
-package com.quanhu.base.resource;
+package com.quanhu.base.controller;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.dao.DataAccessException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,28 +29,40 @@ import com.quanhu.base.service.BaseService;
  */
 @SuppressWarnings("serial")
 public abstract class BaseController<T	extends IdEntity> implements Serializable {
+	protected Logger logger = Logger.getLogger(BaseController.class);
+	
 	public	abstract	BaseService<T>	getService();
 	
 	@RequestMapping(value="base/insert",method=RequestMethod.POST)
 	@ResponseBody
-	public	Map<String,Byte>	insert(T t){
+	public	Map<String,String>	insert(T t){
+		HashMap<String, String> hashMap = new HashMap<String,String>(1);
 		try {
 			getService().insert(t);
-			HashMap<String, Byte> hashMap = new HashMap<String,Byte>(1);
-			hashMap.put("code", (byte)200);
+			hashMap.put("code", "200");
+			hashMap.put("message", "success");
 			return hashMap;
 		} catch (DataAccessException e) {
-			e.printStackTrace();
-			throw	new	DaoException("dao层:insert()出现异常");
+//			e.printStackTrace();
+			logger.info("------------dao层:insert()出现异常:"+e.getMessage());
+			hashMap.put("code", "500");
+			hashMap.put("message", "dao层:insert()出现异常:"+e.getMessage());
+			return hashMap;
 		} catch (ServiceException e) {
-			e.printStackTrace();
-			throw	new	ServiceException("service层:insert()出现异常");
+			logger.info("------------service层:insert()出现异常:"+e.getMessage());
+			hashMap.put("code", "500");
+			hashMap.put("message", "service层:insert()出现异常:"+e.getMessage());
+			return hashMap;
 		} catch (ControllerException e) {
-			e.printStackTrace();
-			throw	new	ServiceException("controller层:insert()出现异常");
+			logger.info("------------controller层:insert()出现异常:"+e.getMessage());
+			hashMap.put("code", "500");
+			hashMap.put("message", "controller层:insert()出现异常:"+e.getMessage());
+			return hashMap;
 		} catch (Exception e) {
-			e.printStackTrace();
-			throw	new	SystemException("系统出现异常");
+			logger.info("------------系统出现异常");
+			hashMap.put("code", "500");
+			hashMap.put("message", "系统出现异常");
+			return hashMap;
 		}
 	}
 	
@@ -79,9 +92,9 @@ public abstract class BaseController<T	extends IdEntity> implements Serializable
 	@RequestMapping(value="base/delete",method=RequestMethod.PUT)
 	@ResponseBody
 	public	Map<String,Byte>	delete(Long	id){
+		HashMap<String, Byte> hashMap = new HashMap<String,Byte>(1);
 		try {
 			getService().delete(id);
-			HashMap<String, Byte> hashMap = new HashMap<String,Byte>(1);
 			hashMap.put("code", (byte)200);
 			return hashMap;
 		} catch (DataAccessException e) {

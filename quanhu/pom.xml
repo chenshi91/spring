@@ -227,6 +227,7 @@
 		<module>quanhu-spring5</module>
 		<module>xunlianying-annotation</module>
 		<module>xunlianying-redis</module>
+		<module>quanhu-javaSE</module>
 	</modules>
 
 </project>

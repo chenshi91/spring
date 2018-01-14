@@ -8,11 +8,12 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.quanhu.base.controller.BaseController;
 import com.quanhu.base.enums.CommonEnum;
-import com.quanhu.base.resource.BaseController;
 import com.quanhu.base.service.BaseService;
 import com.quanhu.topic.entity.Topic;
 import com.quanhu.topic.service.TopicService;
@@ -79,8 +80,8 @@ public class TopicControl extends BaseController<Topic> {
 		return	"topic/topicList";
 	}
 	
-	@RequestMapping(value="pagelist",method=RequestMethod.GET)
-	public	String	listByPage(Byte pageNo,Byte pageSize,Model model){
+	@RequestMapping(value="pagelist/{pageNo}/{pageSize}",method=RequestMethod.GET)
+	public	String	listByPage(@PathVariable(value="pageNo")Byte pageNo,@PathVariable(value="pageSize")Byte pageSize,Model model){
 		return	listByPage(pageNo, pageSize, model, "topic/topicList");
 	}
 	
