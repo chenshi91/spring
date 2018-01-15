@@ -26,7 +26,7 @@ public class Day3_2WriteAndRead {
 	@Test
 	public void writeAndRead() throws IOException{
 		OutputStream fos = new	FileOutputStream("day3.txt");//字节流
-		Writer	write=new OutputStreamWriter(fos);//字节流-->字符流
+		Writer	write=new OutputStreamWriter(fos,"GBK");//字节流-->字符流,并制定编码格式,如不制定则默认GBK
 		PrintWriter printWriter = new	PrintWriter(write);//加上缓冲流
 		printWriter.println("葡萄美酒夜光杯,");
 		printWriter.println("欲饮琵琶马上催.");
@@ -35,7 +35,7 @@ public class Day3_2WriteAndRead {
 		printWriter.close();
 		
 		FileInputStream fis = new	FileInputStream("day3.txt");
-		Reader read=new	InputStreamReader(fis);
+		Reader read=new	InputStreamReader(fis,"GBK");
 		BufferedReader br=new BufferedReader(read);
 		while(true){
 			String readLine = br.readLine();
