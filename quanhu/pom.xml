@@ -218,9 +218,7 @@
 		<module>quanhu-topic</module>
 		<module>quanhu-xyq</module>
 		<module>quanhu-web</module>
-		<module>quanhu-test</module>
 		<module>quanhu-user</module>
-		<module>quanhu-test2</module>
 		<module>quanhu-spring3</module>
 		<module>quanhu-mybatis</module>
 		<module>quanhu-spring4</module>

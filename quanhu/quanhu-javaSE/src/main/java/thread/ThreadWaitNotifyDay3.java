@@ -8,7 +8,7 @@ package thread;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class ThreadWaitNotify {
+public class ThreadWaitNotifyDay3 {
 	
 	/**wait(),notify()/notifyAll()只能写在同步代码块里面,代表正在运行的线程进入和离开等待队列状态(阻塞)
 	 * 1,wait()表示线程进入等待队列状态并释放线程所有的锁标记和cpu,

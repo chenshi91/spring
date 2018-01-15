@@ -8,7 +8,7 @@ package thread;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class ThreadSyn {
+public class ThreadSynDay2 {
 	/**为了保持多线程对临界资源(同一对象)的原子操作,synchronized(临界资源){}代码块加锁
 	 * synchronized修饰的方法叫做同步方法
 	 * hashMap里面的方法不是同步方法,所以线程不安全.hashTable里面全部是同步方法,所以线程安全,但牺牲了性能速度*/

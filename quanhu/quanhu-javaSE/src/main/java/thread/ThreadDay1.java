@@ -8,7 +8,7 @@ package thread;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class ThreadFirst {
+public class ThreadDay1 {
 	/**线程的5种状态:1,初始化;2可运行;3,运行状态;4阻塞状态(锁池,等待队列,一般阻塞);5结束.*/
 	public static void main(String[] args) throws InterruptedException {
 		Thread t1=new ThreadA();
