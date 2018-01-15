@@ -18,7 +18,7 @@ import org.junit.Test;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class DataInputStreamDay2_2 {
+public class Day2_2DataInputStream {
 	
 	/**DataOutputStream,DataInputStream包装流能增强节点流的功能*/
 	@Test

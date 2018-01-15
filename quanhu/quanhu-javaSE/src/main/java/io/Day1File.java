@@ -14,7 +14,7 @@ import org.junit.Test;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class FileDay1 {
+public class Day1File {
 	
 	@Test
 	public void wenjianFile() throws IOException {

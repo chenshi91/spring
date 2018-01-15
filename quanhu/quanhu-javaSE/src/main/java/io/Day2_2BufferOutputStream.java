@@ -15,7 +15,7 @@ import org.junit.Test;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class BufferOutputStreamDay2_2 {
+public class Day2_2BufferOutputStream {
 	/**BufferedOutputStream现将数据从jvm读取到缓冲区,然后再从缓冲区一次性全部读取到file文件里面
 	 * 一般用于写操作,和OutputStream连用*/
 	@Test

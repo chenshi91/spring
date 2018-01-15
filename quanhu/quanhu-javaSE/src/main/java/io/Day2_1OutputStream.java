@@ -14,9 +14,9 @@ import org.junit.Test;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class OutputStreamDay2_1 {
+public class Day2_1OutputStream {
 	
-	/**输出流向文件写字节*/
+	/**输出流向文件写字节,字节流*/
 	@Test
 	public void fileOutputStream() throws IOException {
 		String str="2018-01-15,hellow world!";

@@ -15,7 +15,7 @@ import org.junit.Test;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-public class InputStreamDay2_1 {
+public class Day2_1InputStream {
 	/**IO编程步骤:
 	 * 1,创建节点流
 	 * 2,封装过滤流
