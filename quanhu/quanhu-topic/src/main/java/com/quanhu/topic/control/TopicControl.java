@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.quanhu.base.controller.BaseController;
 import com.quanhu.base.enums.CommonEnum;
+import com.quanhu.base.exception.ServiceException;
 import com.quanhu.base.service.BaseService;
 import com.quanhu.topic.entity.Topic;
 import com.quanhu.topic.service.TopicService;
@@ -48,7 +49,14 @@ public class TopicControl extends BaseController<Topic> {
 	 */
 	@RequestMapping(value="selectById" )
 	public	String	selectById(Model	model,Long	id){
-		Topic topic = topicService.selectById(id);
+		Topic topic=null;
+		try {
+			topic = topicService.selectById(id);
+		} catch (ServiceException e) {
+			e.printStackTrace();
+			logger.info("-------------service出现异常-------------");
+			return	"dfdfdf";
+		}
 		model.addAttribute("entity", topic);
 		return	"topic/postList";
 	}
