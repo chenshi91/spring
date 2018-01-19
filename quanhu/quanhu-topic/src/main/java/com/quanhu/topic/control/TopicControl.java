@@ -47,11 +47,12 @@ public class TopicControl extends BaseController<Topic> {
 	 * @param id
 	 * @return String
 	 */
-	@RequestMapping(value="selectById" )
-	public	String	selectById(Model	model,Long	id){
+	@RequestMapping(value="selectById/{id}" )
+	public	String	selectById(Model	model,@PathVariable(value="id")Long	id){
 		Topic topic=null;
 		try {
 			topic = topicService.selectById(id);
+//			Object ot=(Object) topic;
 		} catch (ServiceException e) {
 			e.printStackTrace();
 			logger.info("-------------service出现异常-------------");

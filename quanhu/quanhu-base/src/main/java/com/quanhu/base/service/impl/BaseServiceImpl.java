@@ -8,7 +8,6 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.quanhu.base.annotations.RedisAnnotation;
 import com.quanhu.base.dao.BaseDao;
 import com.quanhu.base.entity.IdEntity;
 import com.quanhu.base.exception.ServiceException;
@@ -55,7 +54,6 @@ public abstract class BaseServiceImpl<T	extends IdEntity>	implements	BaseService
 		getDao().delete(id);
 	};
 	
-	@RedisAnnotation(effectiveTime = "24*60*60")
 	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public T		selectById(Long id){
 		if(id==null){
@@ -77,7 +75,6 @@ public abstract class BaseServiceImpl<T	extends IdEntity>	implements	BaseService
 		return	getDao().selectAll();
 	};
 	
-	@RedisAnnotation(effectiveTime = "24*60*60")
 	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
 	public List<T>	listByPage(Byte pageNo,Byte pageSize){
 		if(pageNo==null||pageSize==null||pageNo<1||pageSize<1){

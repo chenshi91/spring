@@ -26,14 +26,18 @@ public class Test extends Topic{
 	 */
 	@Override
 	public String toString() {
-		return "Test [" + (name != null ? "name=" + name : "") + "]";
+		return "Test [" + (name != null ? "name=" + name : "") 
+				+" "+(super.getTitle() != null ? "title=" + super.getTitle() : "")
+				+" "+(super.getCreateUserId() != null ? "createUserId=" + super.getCreateUserId() : "")+ "]";
 	}
 	public static void main(String[] args) {
-		Test topic = new	Test();
-		topic.setTitle("huati");
-		topic.setCreateUserId("1991-7-15");
-		topic.setName("chens");
-		Topic	test=topic;
-		System.out.println(test.toString());
+		Topic test = new	Test();
+		test.setTitle("huati");
+		test.setCreateUserId("1991-7-15");
+		
+		System.out.println(test);
+		Test	topic=(Test) test;
+		topic.setName("xujiali");
+		System.out.println(topic);
 	}
 }

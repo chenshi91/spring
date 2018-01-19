@@ -19,5 +19,7 @@ import java.lang.annotation.Target;
 public @interface RedisAnnotation {
 	
 	String	effectiveTime();
+	@SuppressWarnings("rawtypes")
+	Class	returnResult();
 	
 }

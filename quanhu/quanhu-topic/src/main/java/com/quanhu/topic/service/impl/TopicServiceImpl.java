@@ -11,6 +11,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.quanhu.base.dao.BaseDao;
+import com.quanhu.base.exception.ServiceException;
+
+import static	com.quanhu.base.requirements.ProjectRequirements.Topic.*;
 import com.quanhu.base.service.impl.BaseServiceImpl;
 import com.quanhu.topic.dao.TopicDao;
 import com.quanhu.topic.entity.Topic;
@@ -47,6 +50,8 @@ public class TopicServiceImpl extends BaseServiceImpl<Topic> implements TopicSer
 		TopicService	topicService=(TopicService) ac.getBean("topicService");
 		topicService.selectById(15L);
 		System.out.println("-------------log---------");
+		if(topic.getContent().length()>CONTENT_LENGTH_MAX||topic.getContent().length()<CONTENT_LENGTH_MIN)
+			throw new ServiceException("话题内容长度在5~100之间");
 	}
 
 	
