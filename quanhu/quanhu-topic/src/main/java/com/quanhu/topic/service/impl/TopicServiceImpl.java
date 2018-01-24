@@ -1,6 +1,9 @@
 
 package com.quanhu.topic.service.impl;
 
+import static com.quanhu.base.requirements.ProjectRequirements.Topic.CONTENT_LENGTH_MAX;
+import static com.quanhu.base.requirements.ProjectRequirements.Topic.CONTENT_LENGTH_MIN;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.BeansException;
@@ -12,8 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.quanhu.base.dao.BaseDao;
 import com.quanhu.base.exception.ServiceException;
-
-import static	com.quanhu.base.requirements.ProjectRequirements.Topic.*;
 import com.quanhu.base.service.impl.BaseServiceImpl;
 import com.quanhu.topic.dao.TopicDao;
 import com.quanhu.topic.entity.Topic;
@@ -44,7 +45,6 @@ public class TopicServiceImpl extends BaseServiceImpl<Topic> implements TopicSer
 		return topicDao;
 	}
 
-	@Override
 	@Transactional(propagation=Propagation.SUPPORTS,readOnly=true)
 	public void regist(Topic topic) {
 		TopicService	topicService=(TopicService) ac.getBean("topicService");
@@ -53,8 +53,17 @@ public class TopicServiceImpl extends BaseServiceImpl<Topic> implements TopicSer
 		if(topic.getContent().length()>CONTENT_LENGTH_MAX||topic.getContent().length()<CONTENT_LENGTH_MIN)
 			throw new ServiceException("话题内容长度在5~100之间");
 	}
-
 	
+	@Override
+	public	void	insert(Topic topic){
+		/**1,添加参数验证条件*/
+		
+		/**2,调用父类没被覆盖的原方法业务*/
+		super.insert(topic);
+		
+		/**3,扩展接口业务*/
+		
+	}
 
 	
 

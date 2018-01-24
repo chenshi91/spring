@@ -15,5 +15,8 @@ public class CommonConstant {
 	public	static 	final	String	DEVELOP_ROLE="开发人员";
 	public	static 	final	String	MODIFIY_PERMISSION="修改权限";
 	public	static 	final	String	VIEW_PERMISSION="访问权限";
+	
+	public	static 	final	Byte	SHELVE_YES=0;
+	public	static 	final	Byte	SHELVE_NO=1;
 
 }

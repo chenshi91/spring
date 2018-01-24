@@ -22,7 +22,7 @@ import com.quanhu.base.service.BaseService;
  */
 public abstract class BaseServiceImpl<T	extends IdEntity>	implements	BaseService<T> {
 	
-	protected Logger logger = Logger.getLogger(BaseServiceImpl.class);
+	protected Logger logger = Logger.getLogger(getClass());
 	
 	private static final long serialVersionUID = -6649329735350511119L;
 
