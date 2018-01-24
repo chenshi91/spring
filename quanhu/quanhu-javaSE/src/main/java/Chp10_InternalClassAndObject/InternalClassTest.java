@@ -13,11 +13,7 @@ public class InternalClassTest {
 	public static void main(String[] args) {
 		Teacher teacher = School.getTeacher(8);
 		teacher.teach();
-		Integer i1 = new	Integer(4);
-		Integer i2 = new	Integer(4);
-//		i1.intValue()
 		
-		System.out.println(i1.intValue()==i2.intValue());
 	}
 }
 
