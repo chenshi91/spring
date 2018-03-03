@@ -80,7 +80,7 @@ public class Day1Test {
 		for (Entry<Object, Object> entry : entrySet) {
 			System.out.println(entry.getKey()+"="+entry.getValue());
 		} 
-		System.out.println(properties.get("username").toString());
+		System.out.println(properties.get("userName2").toString());
 	}
 	
 

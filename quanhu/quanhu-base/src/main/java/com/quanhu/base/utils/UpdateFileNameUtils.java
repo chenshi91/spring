@@ -12,7 +12,7 @@ import java.io.File;
  */
 public class UpdateFileNameUtils {
 	public static void main(String[] args) {
-		String fileUrl = "D:/天龙八部";String fileOldName = "[迅播影院www.XunBo.Cc]";String fileReplaceName = "";
+		String fileUrl = "H:/苏菲玛索电影全集";String fileOldName = "【苏菲·玛索】";String fileReplaceName = "【苏菲·玛索】";
 		updateFileName(fileUrl,fileOldName,fileReplaceName);
 	}
 	

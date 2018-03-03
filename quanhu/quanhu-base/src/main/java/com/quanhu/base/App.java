@@ -4,8 +4,7 @@ package com.quanhu.base;
  * Hello world!
  *
  */
-public class App 
-{	
+public class App {
 	public String getName() {
 		return name;
 	}
@@ -14,7 +13,7 @@ public class App
 		this.name = name;
 	}
 
-	/* 
+	/*
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -22,9 +21,9 @@ public class App
 		return "App [" + (name != null ? "name=" + name : "") + "]";
 	}
 
-	private	String name;
-	
-    /**
+	private String name;
+
+	/**
 	 * 
 	 */
 	public App() {
@@ -39,8 +38,7 @@ public class App
 		this.name = name;
 	}
 
-	public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
-    }
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
 }

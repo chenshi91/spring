@@ -23,9 +23,9 @@ public class Day4ObjectOutputStream {
 	public	void objectOutputStream() throws IOException, ClassNotFoundException{
 		FileOutputStream fos = new	FileOutputStream("object.dat");
 		ObjectOutputStream oos = new	ObjectOutputStream(fos);
-		oos.writeObject(new Student(1L, "chens", (double) 95));
+		oos.writeObject(new Student(1L, "huxz", (double) 95));
 		oos.writeObject(new Student(2L, "xujiali", (double) 78));
-		oos.writeObject(new Student(3L, "wnn", (double) 100));
+		oos.writeObject(new Student(3L, "zhengm", (double) 86));
 		oos.close();
 		
 		FileInputStream fis = new	FileInputStream("object.dat");
@@ -33,7 +33,7 @@ public class Day4ObjectOutputStream {
 		while(true){
 			Object readObject = ois.readObject();
 			if(readObject==null)break;
-			if(readObject instanceof	Student){
+			if(readObject.getClass()==Student.class){
 				Student stu=(Student) readObject;
 				System.out.println(stu);
 			}

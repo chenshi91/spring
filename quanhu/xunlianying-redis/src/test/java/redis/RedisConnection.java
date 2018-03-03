@@ -42,7 +42,7 @@ public class RedisConnection {
 		System.out.println("user:"+userValue);
 		ArrayList<String> stringList = new	ArrayList<>();
 		stringList.add("chens");
-		stringList.add("zhangyi");
+		stringList.add("zhengm");
 		shardedJedis.set("yryz", stringList.toString());
 		
 		/**5,归还连接*/

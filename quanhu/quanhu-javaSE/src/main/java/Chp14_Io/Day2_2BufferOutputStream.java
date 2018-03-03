@@ -23,6 +23,7 @@ public class Day2_2BufferOutputStream {
 		OutputStream os = new	FileOutputStream("bufferOutputStream.txt");
 		BufferedOutputStream bos = new	BufferedOutputStream(os);
 		bos.write('A');
+		bos.write("wo水电费和规范化的规范".getBytes("utf-8"));
 		bos.flush();//将缓冲区数据释放,一次性全部读取到file文件里面
 		bos.close();
 	}
