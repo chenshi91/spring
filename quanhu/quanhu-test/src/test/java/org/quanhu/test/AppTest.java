@@ -1,4 +1,4 @@
-package org.quanhu.spring2;
+package org.quanhu.test;
 
 import junit.framework.Test;
 import junit.framework.TestCase;

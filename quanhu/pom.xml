@@ -212,8 +212,6 @@
 
 
 	<modules>
-		<!-- <module>quanhu-spring1</module>
-		<module>quanhu-spring2</module> -->
 		<module>quanhu-base</module>
 		<module>quanhu-topic</module>
 		<module>quanhu-xyq</module>
@@ -226,6 +224,8 @@
 		<module>xunlianying-annotation</module>
 		<module>xunlianying-redis</module>
 		<module>quanhu-javaSE</module>
+		<module>quanhu-spring1</module>
+		<module>quanhu-spring2</module>
 	</modules>
 
 </project>
