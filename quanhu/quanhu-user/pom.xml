@@ -3,13 +3,12 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>com.wuhan</groupId>
-    <artifactId>quanhu</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <groupId>com.yryz.quanhu</groupId>
+	<artifactId>quanhu</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
   </parent>
   <groupId>com.wuhan</groupId>
   <artifactId>quanhu-user</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
   <name>quanhu-user</name>
   <url>http://maven.apache.org</url>
   <properties>

@@ -8,9 +8,9 @@
         </dependency>
     </dependencies>
     <parent>
-    <groupId>com.wuhan</groupId>
-    <artifactId>quanhu</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-  </parent>
+	    <groupId>com.yryz.quanhu</groupId>
+		<artifactId>quanhu</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+  	</parent>
   <artifactId>quanhu-javaSE</artifactId>
 </project>

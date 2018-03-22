@@ -4,7 +4,7 @@
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>com.wuhan</groupId>
+		<groupId>com.yryz.quanhu</groupId>
 		<artifactId>quanhu</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
@@ -14,13 +14,13 @@
 	<url>http://maven.apache.org</url>
 	<dependencies>
 		<dependency>
-			<groupId>com.wuhan</groupId>
+			<groupId>com.yryz.quanhu</groupId>
 			<artifactId>quanhu-base</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 		
 		<dependency>
-			<groupId>com.wuhan</groupId>
+			<groupId>com.yryz.quanhu</groupId>
 			<artifactId>quanhu-topic</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
