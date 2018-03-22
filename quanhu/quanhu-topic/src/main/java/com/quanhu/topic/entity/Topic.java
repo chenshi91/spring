@@ -3,6 +3,8 @@ package com.quanhu.topic.entity;
 
 import com.quanhu.base.entity.BaseEntity;
 
+import javax.validation.constraints.Max;
+
 /**
  * @auter: 	chenshi 
  * @date:  	2017年11月11日 下午4:54:36
@@ -11,8 +13,10 @@ public class Topic extends BaseEntity {
 
 	private static final long serialVersionUID = 4003503744402929116L;
 
+	@Max(value = 10,message = "标题最少10长度")
 	private	String	title;
-	
+
+	@Max(value = 20,message = "内容最少20字节")
 	private	String	content;
 	
 	private	String	imgUrl;
