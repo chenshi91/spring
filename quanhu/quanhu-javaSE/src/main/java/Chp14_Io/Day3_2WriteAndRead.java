@@ -1,18 +1,9 @@
 /**Created	by	chenshi  at	2018年1月15日 下午6:29:44*/
 package Chp14_Io;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
-import java.io.Reader;
-import java.io.Writer;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import java.io.*;
 
 /**
  * @description:	WriteAndReadDay3_2.java

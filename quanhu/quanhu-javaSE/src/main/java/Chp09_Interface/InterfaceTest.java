@@ -1,7 +1,7 @@
 /**Created	by	chenshi  at	2018年1月22日 下午11:47:20*/
 package Chp09_Interface;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @description:	InterfaceTest.java

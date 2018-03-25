@@ -1,11 +1,11 @@
 /**Created	by	chenshi  at	2018年1月15日 下午2:33:38*/
 package Chp14_Io;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-
-import org.junit.Test;
 
 /**
  * @description:	OutputStreamDay2.java

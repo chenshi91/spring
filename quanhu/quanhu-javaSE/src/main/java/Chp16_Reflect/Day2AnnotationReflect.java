@@ -1,9 +1,9 @@
 /**Created	by	chenshi  at	2018年1月16日 下午10:45:55*/
 package Chp16_Reflect;
 
-import java.lang.reflect.Method;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import java.lang.reflect.Method;
 
 /**
  * @description:	Day2AnnotationTest.java

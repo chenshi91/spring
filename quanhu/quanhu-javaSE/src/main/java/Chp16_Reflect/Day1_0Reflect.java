@@ -1,10 +1,10 @@
 /**Created	by	chenshi  at	2018年1月16日 下午12:00:55*/
 package Chp16_Reflect;
 
+import org.junit.jupiter.api.Test;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-
-import org.junit.Test;
 
 /**
  * @description:	day1_1reflect.java

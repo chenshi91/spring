@@ -1,9 +1,9 @@
 /**Created	by	chenshi  at	2018年1月16日 下午5:40:04*/
 package Chp16_Reflect;
 
-import java.lang.reflect.Method;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import java.lang.reflect.Method;
 
 /**
  * @description:	day1_3methodInvoke.java

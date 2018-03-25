@@ -1,14 +1,9 @@
 /**Created	by	chenshi  at	2018年1月15日 下午8:58:14*/
 package Chp14_Io;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import java.io.*;
 
 /**
  * @description:	Day4ObjectOutputStream.java

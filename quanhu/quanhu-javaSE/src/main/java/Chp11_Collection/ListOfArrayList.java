@@ -1,7 +1,7 @@
 /**Created	by	chenshi  at	2018年1月18日 下午6:03:16*/
 package Chp11_Collection;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @description:	ArrayList2.java

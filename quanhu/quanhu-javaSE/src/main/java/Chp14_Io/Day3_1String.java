@@ -1,9 +1,9 @@
 /**Created	by	chenshi  at	2018年1月15日 下午5:49:22*/
 package Chp14_Io;
 
-import java.io.UnsupportedEncodingException;
+import org.junit.jupiter.api.Test;
 
-import org.junit.Test;
+import java.io.UnsupportedEncodingException;
 
 /**
  * @description:	StringDay3_1.java

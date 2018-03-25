@@ -1,10 +1,10 @@
 /**Created	by	chenshi  at	2018年1月19日 下午4:12:23*/
 package generic;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import org.junit.Test;
 
 /**
  * @description:	Generic.java

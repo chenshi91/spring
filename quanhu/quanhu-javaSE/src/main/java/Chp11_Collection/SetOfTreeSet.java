@@ -1,10 +1,10 @@
 /**Created	by	chenshi  at	2018年1月19日 上午9:23:39*/
 package Chp11_Collection;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Iterator;
 import java.util.TreeSet;
-
-import org.junit.Test;
 
 /**
  * @description:	SetOfTreeSet.java

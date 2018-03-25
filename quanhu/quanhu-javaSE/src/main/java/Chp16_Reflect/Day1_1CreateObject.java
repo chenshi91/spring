@@ -1,7 +1,7 @@
 /**Created	by	chenshi  at	2018年1月16日 下午6:11:11*/
 package Chp16_Reflect;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 /**
  * @description:	Day1CreateObject.java
