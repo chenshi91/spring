@@ -2,6 +2,7 @@
 package com.quanhu.topic.entity;
 
 import com.quanhu.base.entity.BaseEntity;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.validation.constraints.Max;
 
@@ -18,7 +19,7 @@ public class Topic extends BaseEntity {
 
 	@Max(value = 20,message = "内容最少20字节")
 	private	String	content;
-	
+
 	private	String	imgUrl;
 	
 

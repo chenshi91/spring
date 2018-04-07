@@ -22,7 +22,7 @@ public class TestBeanPostProcessor {
 	
 	@Before
 	public void	before(){
-		ctx=new ClassPathXmlApplicationContext("classpath:/yuanli/spring/applicationContext.xml");
+		ctx=new ClassPathXmlApplicationContext("classpath:yuanli/spring/applicationContext.xml");
 	}
 	
 	@After

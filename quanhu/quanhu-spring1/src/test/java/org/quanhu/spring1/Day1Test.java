@@ -1,12 +1,6 @@
 /**Created	by	chenshi  at	2017年12月5日 上午11:50:12*/
 package org.quanhu.spring1;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Map.Entry;
-import java.util.Properties;
-import java.util.Set;
-
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,6 +8,12 @@ import org.quanhu.spring1.day1.entity.User;
 import org.quanhu.spring1.day1.services.UserService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map.Entry;
+import java.util.Properties;
+import java.util.Set;
 
 /**
  * @description:	Day1Test.java
@@ -62,8 +62,8 @@ public class Day1Test {
 	
 	@Test
 	public	void	createUser3(){
-		User user = (User) act.getBean("user3");
-		System.out.println(user.toString());
+		User user3 = act.getBean("user3", User.class);
+		System.out.println(user3);
 	}
 	
 	@Test
@@ -80,7 +80,7 @@ public class Day1Test {
 		for (Entry<Object, Object> entry : entrySet) {
 			System.out.println(entry.getKey()+"="+entry.getValue());
 		} 
-		System.out.println(properties.get("userName2").toString());
+		System.out.println(properties.get("userName").toString());
 	}
 	
 

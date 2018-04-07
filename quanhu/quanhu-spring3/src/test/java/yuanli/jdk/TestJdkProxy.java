@@ -35,6 +35,7 @@ public class TestJdkProxy {
 		
 		/**
 		 * JDK底层Proxy方法
+		 *
 		 * 1,借用classLoader
 		 * 2,原始对象所实现的接口
 		 * 3,额外功能InvocationHandler

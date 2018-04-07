@@ -18,6 +18,7 @@ import com.quanhu.base.exception.ServiceException;
 import com.quanhu.base.service.BaseService;
 import com.quanhu.topic.entity.Topic;
 import com.quanhu.topic.service.TopicService;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 
@@ -93,6 +94,12 @@ public class TopicControl extends BaseController<Topic> {
 	public	String	listByPage(@PathVariable(value="pageNo")Byte pageNo,@PathVariable(value="pageSize")Byte pageSize,Model model){
 		return	listByPage(pageNo, pageSize, model, "topic/topicList");
 	}
-	
+
+	@RequestMapping(value = "/topic",method = RequestMethod.GET)
+	@ResponseBody
+	public List<Topic> list(){
+		List<Topic> list = topicService.listByPage((byte)1, (byte)10);
+		return list;
+	}
 
 }
