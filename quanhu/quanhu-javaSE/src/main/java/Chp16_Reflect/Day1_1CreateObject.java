@@ -3,6 +3,8 @@ package Chp16_Reflect;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Field;
+
 /**
  * @description:	Day1CreateObject.java
  * @packageName:	reflect
@@ -15,8 +17,13 @@ public class Day1_1CreateObject {
 	@Test
 	public void createObject() throws ClassNotFoundException, Exception{
 		/**反射创建对象*/
-		Class<?> forName = Class.forName("reflect.Student");
+		Class<?> forName = Class.forName("Chp16_Reflect.Student");
 		Object object = forName.newInstance();
 		System.out.println(object instanceof Student);
+		System.out.println(forName.getInterfaces());
+		/*Field[] fields = forName.getDeclaredFields();
+		for (Field field : fields) {
+			System.out.println(field.getName());
+		}*/
 	}
 }

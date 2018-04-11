@@ -16,7 +16,7 @@ public class Day2AnnotationReflect {
 	
 	@Test
 	public void annotation() throws Exception{
-		Class<?> forName = Class.forName("reflect.School");
+		Class<?> forName = Class.forName("Chp16_Reflect.School");
 		Method[] methods = forName.getDeclaredMethods();
 		for (Method method : methods) {
 			if(method.isAnnotationPresent(MethodAnnotation.class)){
@@ -26,7 +26,8 @@ public class Day2AnnotationReflect {
 				System.out.println(method.getName()+" key="+key+" value="+value);
 			}
 		}
-		
+		Method m2 = forName.getMethod("m2");
+		m2.invoke(forName.newInstance());
 	}
 }
 
@@ -38,7 +39,7 @@ class School{
 	}
 	
 	public void m2(){
-		
+		System.out.println("--do  m2Method()----");
 	}
 	
 	@MethodAnnotation(value = "zhengm")

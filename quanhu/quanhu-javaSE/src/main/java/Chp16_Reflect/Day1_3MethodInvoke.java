@@ -25,7 +25,7 @@ public class Day1_3MethodInvoke {
 	@Test
 	public void methodInvoke2() throws Exception{
 		/**用反射重写*/
-		Class<?> class1 = Class.forName("reflect.Student");
+		Class<?> class1 = Class.forName("Chp16_Reflect.Student");
 		Object object = class1.newInstance();//反射创建类的对象(无参构造)
 		Method declaredMethod = class1.getDeclaredMethod("study");//通过方法名得到类方法(无参方法)
 		Object invoke2 = declaredMethod.invoke(object);//调用类的对象的方法(无参方法)

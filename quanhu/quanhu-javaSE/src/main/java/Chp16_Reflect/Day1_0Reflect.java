@@ -17,7 +17,7 @@ public class Day1_0Reflect {
 	
 	@Test
 	public void reflect() throws ReflectiveOperationException, IllegalAccessException{
-		String  className = "reflect.Student";
+		String  className = "Chp16_Reflect.Student";
 		String  methodName = "study";
 		try {
 			/**1,根据类名打印类里面所有方法*/

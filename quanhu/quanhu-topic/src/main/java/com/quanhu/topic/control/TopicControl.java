@@ -48,7 +48,7 @@ public class TopicControl extends BaseController<Topic> {
 	 * @param id
 	 * @return String
 	 */
-	@RequestMapping(value="selectById/{id}" )
+	@RequestMapping(value="selectById/{id}",method = RequestMethod.GET)
 	public	String	selectById(Model	model,@PathVariable(value="id")Long	id){
 		Topic topic=null;
 		try {
