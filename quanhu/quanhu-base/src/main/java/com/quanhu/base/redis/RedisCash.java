@@ -39,7 +39,7 @@ public class RedisCash {
 	protected Logger logger = Logger.getLogger(ServiceLogAop.class);
 	
 	@SuppressWarnings("unchecked")
-	@Around(value="execution(* com.quanhu..*.service.impl..*.*(..)) or execution(* com.quanhu.base.service.impl..*.*(..))")
+	@Around(value="execution(* com.quanhu..*.service.impl..*.*(..)) || execution(* com.quanhu.base.service.impl..*.*(..))")
 	public Object	around(ProceedingJoinPoint	pjp) throws Throwable{
 		/**1,获取目标对象,方法,入参*/
 		Object target = pjp.getTarget();
