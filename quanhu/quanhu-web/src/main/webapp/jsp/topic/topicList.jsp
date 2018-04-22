@@ -33,7 +33,7 @@
 				</tr>
 			</c:if>
 			<c:forEach	items="${list }"	var="entity">
-				<tr	bgcolor="${entity.commonEnum.color }">
+				<tr	bgcolor="#7fff00">
 					<td	style="  "	align="center"><input	type="checkbox"/></td>
 					<td	style="  "	align="center">${entity.id }</td>
 					<td	style="  "	align="center"><a	href="${ctx}/quanhu-web/v1/admin/post/list?topicId=${entity.id }">${entity.title }</a></td>

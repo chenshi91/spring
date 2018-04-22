@@ -6,6 +6,7 @@ import static com.quanhu.base.requirements.ProjectRequirements.Topic.CONTENT_LEN
 
 import javax.annotation.Resource;
 
+import com.quanhu.base.annotations.RedisAnnotation;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -65,6 +66,11 @@ public class TopicServiceImpl extends BaseServiceImpl<Topic> implements TopicSer
 		
 	}
 
+	@RedisAnnotation(effectiveTime = "20",returnResult = Topic.class)
+	@Override
+	public 	Topic selectById(Long id){
+		return super.selectById(id);
+	}
 	
 
 	

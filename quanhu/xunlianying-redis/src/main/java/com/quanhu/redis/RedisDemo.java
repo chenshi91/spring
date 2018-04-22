@@ -1,8 +1,7 @@
 /**Created	by	chenshi  at	2018年2月18日 下午7:47:24*/
 package com.quanhu.redis;
 
-import org.junit.Test;
-
+import org.junit.jupiter.api.Test;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;

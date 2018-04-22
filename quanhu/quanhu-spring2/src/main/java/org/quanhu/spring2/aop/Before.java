@@ -1,9 +1,9 @@
 /**Created	by	chenshi  at	2017年12月13日 上午9:39:03*/
 package org.quanhu.spring2.aop;
 
-import java.lang.reflect.Method;
-
 import org.springframework.aop.MethodBeforeAdvice;
+
+import java.lang.reflect.Method;
 
 /**
  * @description:	Before.java
@@ -15,9 +15,7 @@ import org.springframework.aop.MethodBeforeAdvice;
 public class Before implements MethodBeforeAdvice {
 
 	@Override
-	public void before(Method method, Object[] args, Object target) throws Throwable {
-		System.out.println("-----------before    log---------------");
-		method.invoke(target, args);
+	public void before(Method method, Object[] objects, Object o) throws Throwable {
+		System.out.println("---------log");
 	}
-
 }

@@ -221,6 +221,7 @@
 		<module>quanhu-spring1</module>
 		<module>quanhu-spring2</module>
 		<module>spring-quartz</module>
+		<module>sgt-demo</module>
 	</modules>
 
 </project>

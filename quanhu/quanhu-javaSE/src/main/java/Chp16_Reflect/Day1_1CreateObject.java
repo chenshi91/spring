@@ -4,6 +4,8 @@ package Chp16_Reflect;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 /**
  * @description:	Day1CreateObject.java
@@ -19,11 +21,26 @@ public class Day1_1CreateObject {
 		/**反射创建对象*/
 		Class<?> forName = Class.forName("Chp16_Reflect.Student");
 		Object object = forName.newInstance();
-		System.out.println(object instanceof Student);
+		/*System.out.println(object instanceof Student);
 		System.out.println(forName.getInterfaces());
-		/*Field[] fields = forName.getDeclaredFields();
+		Field[] fields = forName.getDeclaredFields();
 		for (Field field : fields) {
 			System.out.println(field.getName());
 		}*/
+		Method[] methods = forName.getDeclaredMethods();
+		for (Method method : methods) {
+			System.out.println(method.getName());
+			Parameter[] parameters = method.getParameters();
+			for (Parameter parameter : parameters) {
+				System.out.println(parameter);
+			}
+			if (parameters.length==0) {
+				if (!method.isAccessible()) {
+					method.setAccessible(true);
+				}
+				method.invoke(object);
+			}
+
+		}
 	}
 }

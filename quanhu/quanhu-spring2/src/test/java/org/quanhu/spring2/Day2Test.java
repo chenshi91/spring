@@ -36,8 +36,9 @@ public class Day2Test {
 	
 	@Test
 	public	void	createHelloWorld(){
-		HelloWorldImpl	helloWorld=(HelloWorldImpl) act.getBean("helloWorld");
+		HelloWorldImpl	helloWorld= act.getBean("helloWorld",HelloWorldImpl.class);
 		helloWorld.printHelloWorld();
+		helloWorld.doPrint();
 	}
 	
 	@Test
@@ -47,38 +48,7 @@ public class Day2Test {
 		timeHandler.printEndTime();
 	}
 	
-	@Test
-	public	void	proxyFactory(){
-		//创建代理工厂
-		ProxyFactory proxyFactory = new	ProxyFactory();
-		//设置原始类
-		proxyFactory.setTarget(new HelloWorldImpl());
-		//添加额外功能
-		proxyFactory.addAdvice(new TimeHandler());
-		
-		//从代理工厂中获取代理对象
-		HelloWorldImpl	hellowWorldImpl=(HelloWorldImpl) proxyFactory.getProxy();
-		hellowWorldImpl.printHelloWorld();
-		System.out.println("----------------------------------------------------");
-		hellowWorldImpl.doPrint();
-	}
-	
-	@Test
-	public void methodInterceptor(){
-		//创建代理工厂
-		ProxyFactory proxyFactory = new	ProxyFactory();
-		//设置原始类
-		proxyFactory.setTarget(new HelloWorldImpl());
-		//添加额外功能
-		proxyFactory.addAdvice(new AopMethodInteception());
-		//从代理工厂中拿到代理对象
-		HelloWorld	helloWorld=(HelloWorld) proxyFactory.getProxy();
-		
-		helloWorld.printHelloWorld();
-		System.out.println();
-		System.out.println();
-		helloWorld.doPrint();
-	}
+
 	
 	@Test
 	public void xml(){

@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import com.quanhu.base.exception.ControllerException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.CollectionUtils;
@@ -48,58 +49,18 @@ public class TopicControl extends BaseController<Topic> {
 	 * @param id
 	 * @return String
 	 */
-	@RequestMapping(value="selectById/{id}",method = RequestMethod.GET)
+	@RequestMapping(value="/{id}",method = RequestMethod.GET)
 	public	String	selectById(Model	model,@PathVariable(value="id")Long	id){
-		Topic topic=null;
-		try {
-			topic = topicService.selectById(id);
-//			Object ot=(Object) topic;
-		} catch (ServiceException e) {
-			e.printStackTrace();
-			logger.info("-------------service出现异常-------------");
-			return	"dfdfdf";
-		}
+		Topic topic = topicService.selectById(id);
 		model.addAttribute("entity", topic);
-		return	"topic/postList";
+		return	"topic/topic";
 	}
 	
-	@RequestMapping(value="list/all",method=RequestMethod.GET)
-	public String list(Model model){
-		List<Topic> list = topicService.listByPage((byte)1, (byte)10);
-		if(CollectionUtils.isEmpty(list)){
-			model.addAttribute("list", list);
-			return	"topic/topicList";
-		}
-		for (Topic topic : list) {
-			//设置枚举属性
-			if(topic.getShelveFlag()!=null){
-				if(topic.getShelveFlag()==CommonEnum.SHELVE_ON.getValue()){
-					topic.setCommonEnum(CommonEnum.SHELVE_ON);
-				}else if (topic.getShelveFlag()==CommonEnum.SHELVE_OFF.getValue()) {
-					topic.setCommonEnum(CommonEnum.SHELVE_OFF);
-				}else {
-					topic.setCommonEnum(CommonEnum.UN_KNOW);
-//					topic.setShelveFlag(CommonEnum.SHELVE_ON.getValue());
-				}		
-			}
-		}
+	@RequestMapping(value="/{pageNo}/{pageSize}",method=RequestMethod.GET)
+	public String list(Model model,@PathVariable("pageNo") int pageNo,@PathVariable("pageSize") int pageSize){
+		List<Topic> list = topicService.listByPage(pageNo, pageSize);
 		model.addAttribute("list", list);
-		/*String aaa="sdsds";
-		aaa.substring(beginIndex, endIndex)
-		aaa.length()*/
 		return	"topic/topicList";
-	}
-	
-	@RequestMapping(value="pagelist/{pageNo}/{pageSize}",method=RequestMethod.GET)
-	public	String	listByPage(@PathVariable(value="pageNo")Byte pageNo,@PathVariable(value="pageSize")Byte pageSize,Model model){
-		return	listByPage(pageNo, pageSize, model, "topic/topicList");
-	}
-
-	@RequestMapping(value = "/topic",method = RequestMethod.GET)
-	@ResponseBody
-	public List<Topic> list(){
-		List<Topic> list = topicService.listByPage((byte)1, (byte)10);
-		return list;
 	}
 
 }

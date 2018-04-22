@@ -13,11 +13,11 @@ import org.quanhu.spring2.day2.service.HelloWorld;
 public class HelloWorldImpl implements HelloWorld {
 
 	public void printHelloWorld() {
-		System.out.println("Enter HelloWorldImpl.printHelloWorld()");
+		System.out.println(" HelloWorldImpl.printHelloWorld()*");
 	}
 
 	public void doPrint() {
-		System.out.println("Enter HelloWorldImpl.doPrint()");
+		System.out.println(" HelloWorldImpl.doPrint()");
 	}
 
 }

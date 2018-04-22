@@ -22,5 +22,5 @@ public abstract interface BaseService<T	extends IdEntity> extends Serializable {
 	 T		selectById(Long id)throws	ServiceException;
 	 List<T>	selectByIds(Long[] ids)throws	ServiceException;
 	 List<T>	selectAll()throws	ServiceException;
-	 List<T>	listByPage(Byte pageNo,Byte pageSize)throws	ServiceException;
+	 List<T>	listByPage(int pageNo,int pageSize)throws	ServiceException;
 }

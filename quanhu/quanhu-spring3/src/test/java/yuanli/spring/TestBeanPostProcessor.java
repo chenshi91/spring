@@ -9,6 +9,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import yuanli.UserService;
 
+import java.io.File;
+
 /**
  * @description:	TestBeanPostProcessor.java
  * @packageName:	yuanli.spring
@@ -17,21 +19,13 @@ import yuanli.UserService;
  * @author:   		chenshi
  */
 public class TestBeanPostProcessor {
-	
-	private	ApplicationContext ctx=null;
-	
-	@Before
-	public void	before(){
-		ctx=new ClassPathXmlApplicationContext("classpath:yuanli/spring/applicationContext.xml");
-	}
-	
-	@After
-	public	void	After(){
-		ctx=null;
-	}
-	
+
 	@Test
 	public	void testBeanPostProcessor(){
+		String url="E:\\ideaProjects\\spring\\quanhu\\quanhu-spring3\\src\\test\\java\\yuanli\\spring\\applicationContext.xml";
+		File file = new File(url);
+		System.out.println(file.exists());
+		ApplicationContext ctx=new ClassPathXmlApplicationContext(url);
 		UserService	us=(UserService) ctx.getBean("us");
 		
 		us.login();

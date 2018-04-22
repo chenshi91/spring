@@ -3,6 +3,7 @@ package com.quanhu.base.service.impl;
 
 import java.util.List;
 
+import com.quanhu.base.annotations.RedisAnnotation;
 import org.apache.log4j.Logger;
 import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
@@ -76,9 +77,9 @@ public abstract class BaseServiceImpl<T	extends IdEntity>	implements	BaseService
 	};
 	
 	@Transactional(propagation=Propagation.SUPPORTS,isolation=Isolation.READ_COMMITTED,readOnly=true)
-	public List<T>	listByPage(Byte pageNo,Byte pageSize){
-		if(pageNo==null||pageSize==null||pageNo<1||pageSize<1){
-			throw	new	ServiceException("pageNo或pageSize输入不符合规范");
+	public List<T>	listByPage(int pageNo,int pageSize){
+		if(pageNo<1||pageSize<1){
+			throw	new	ServiceException("pageNo或pageSize不能<1");
 		}
 		return	getDao().listByPage((pageNo-1)*pageSize,pageSize);
 	};
