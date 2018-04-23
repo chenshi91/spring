@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="quanhu-base" />
+        <module name="quanhu-javaSE" />
+        <module name="quanhu-mybatis" />
+        <module name="quanhu-spring1" />
+        <module name="quanhu-spring2" />
+        <module name="quanhu-spring3" />
+        <module name="quanhu-spring4" />
+        <module name="quanhu-spring5" />
+        <module name="quanhu-topic" />
+        <module name="quanhu-user" />
+        <module name="quanhu-web" />
+        <module name="quanhu-xyq" />
+        <module name="sgt-demo" />
+        <module name="spring-quartz" />
+        <module name="xunlianying-annotation" />
+        <module name="xunlianying-redis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="quanhu" target="1.8" />
+      <module name="quanhu-base" target="1.8" />
+      <module name="quanhu-javaSE" target="1.8" />
+      <module name="quanhu-mybatis" target="1.8" />
+      <module name="quanhu-spring1" target="1.8" />
+      <module name="quanhu-spring2" target="1.8" />
+      <module name="quanhu-spring3" target="1.8" />
+      <module name="quanhu-spring4" target="1.8" />
+      <module name="quanhu-spring5" target="1.8" />
+      <module name="quanhu-topic" target="1.8" />
+      <module name="quanhu-user" target="1.8" />
+      <module name="quanhu-web" target="1.8" />
+      <module name="quanhu-xyq" target="1.8" />
+      <module name="sgt-demo" target="1.8" />
+      <module name="spring-quartz" target="1.8" />
+      <module name="xunlianying-annotation" target="1.8" />
+      <module name="xunlianying-redis" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

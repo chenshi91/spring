@@ -30,7 +30,7 @@ import com.quanhu.topic.service.PostService;
  * @revision:   	v1.0.0
  * @author:   		chenshi
  */
-@Service(value="postService")
+@Service
 public class PostServiceImpl extends BaseServiceImpl<Post> implements PostService ,ApplicationContextAware{
 	
 	ApplicationContext	ac;

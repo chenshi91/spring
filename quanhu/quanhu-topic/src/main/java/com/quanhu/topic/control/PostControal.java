@@ -3,8 +3,7 @@ package com.quanhu.topic.control;
 
 import java.util.List;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,7 +27,7 @@ public class PostControal extends BaseController<Post> {
 	/***/
 	private static final long serialVersionUID = 1377873264540106576L;
 	
-	@Resource(name="postService")
+	@Autowired
 	PostService	postService;
 	
 	@Override

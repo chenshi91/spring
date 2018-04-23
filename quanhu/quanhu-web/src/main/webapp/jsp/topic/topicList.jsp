@@ -7,12 +7,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>话题列表</title>
+<script type="text/javascript" src="${pageContext.request.contextPath}/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/easyui/easyui-lang-zh_CN.js"></script>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/easyui/themes/icon.css">
 </head>
 <body>
 	<h1>后台管理系统</h1>
 	<div	style="color: red">话题管理</div>
 	<div>
-		<table	border="1" style="table-layout:fixed;">
+		<table	 >
 			<tr>
 				<th></th>
 				<th>id</th>

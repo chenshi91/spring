@@ -2,8 +2,6 @@
 package com.quanhu.base.redis;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.annotation.Resource;
 
@@ -16,7 +14,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.quanhu.base.App;
 import com.quanhu.base.annotations.RedisAnnotation;
 import com.quanhu.base.aops.ServiceLogAop;
 
@@ -39,7 +36,6 @@ public class RedisCash {
 	
 	protected Logger logger = Logger.getLogger(ServiceLogAop.class);
 	
-	@SuppressWarnings("unchecked")
 	@Around(value="@annotation(com.quanhu.base.annotations.RedisAnnotation) ")
 	public Object	around(ProceedingJoinPoint	pjp) throws Throwable{
 		/**1,获取目标对象,方法,入参*/

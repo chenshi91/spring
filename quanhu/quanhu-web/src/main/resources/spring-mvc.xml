@@ -10,11 +10,15 @@
                         http://www.springframework.org/schema/mvc  
                         http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
-	<context:component-scan base-package="com.quanhu.**.control" />
+	<context:component-scan base-package="com.quanhu" />
 	<context:component-scan base-package="com.yryz.sgt"/>
-	<!-- <mvc:default-servlet-handler/>
+	<!-- <context:component-scan base-package="com.yryz.quanhu.login"/> -->
 	
-	避免IE执行AJAX时，返回JSON出现下载文件
+	<!-- 对于静态资源的请求（jsp.js.html.css.png.gif）放行，不经过DispatcherServlet -->
+	<mvc:default-servlet-handler  />
+	<mvc:annotation-driven/>
+	
+	<!-- 避免IE执行AJAX时，返回JSON出现下载文件
 	<bean id="mappingJacksonHttpMessageConverter"
 		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
 		<property name="supportedMediaTypes">
@@ -43,6 +47,7 @@
 	<bean id="multipartResolver"  
         class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
         <!-- 默认编码 -->
+        
         <property name="defaultEncoding" value="utf-8" />  
         <!-- 文件大小最大值 -->
         <property name="maxUploadSize" value="10485760000" />  

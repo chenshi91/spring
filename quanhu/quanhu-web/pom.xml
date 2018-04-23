@@ -13,6 +13,7 @@
 	<name>quanhu-web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	<dependencies>
+		
 		<dependency>
 			<groupId>com.yryz.quanhu</groupId>
 			<artifactId>sgt-demo</artifactId>
