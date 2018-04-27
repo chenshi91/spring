@@ -1,8 +1,6 @@
 /**Created	by	chenshi  at	2018年1月22日 上午8:37:27*/
 package Chp06_ObjectAndClass;
 
-import java.util.Arrays;
-
 /**
  * @description:	MyValueTest.java
  * @packageName:	Chp6_ObjectAndClass
@@ -11,7 +9,7 @@ import java.util.Arrays;
  * @author:   		chenshi
  */
 public class MyValueTest {
-	/**在 Java 中的方法参数传递中，基本类型+String类型传值，对象类型传地址*/
+	/**在 Java 中的方法参数传递中，基本类型+String直接传值，对象+数组传首地址*/
 	public static void main(String[] args) {
 		int a=10;
 		changeInt(a);
@@ -35,7 +33,7 @@ public class MyValueTest {
 	}
 
 	private static void changeInteger(int[] ids) {
-		ids=new int[]{5,1,6};
+		ids[1]=10;
 	}
 
 	private static void changeString(String str) {

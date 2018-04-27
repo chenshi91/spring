@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 @Controller
-public class LoginControal {
+public class Login {
 	
 	@RequestMapping(value="/login2",method={RequestMethod.GET})
 	public String login(String username,String password){

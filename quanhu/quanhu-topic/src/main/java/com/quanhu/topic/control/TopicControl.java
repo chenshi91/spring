@@ -1,25 +1,25 @@
 
 package com.quanhu.topic.control;
 
+import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletResponse;
 
-import com.quanhu.base.exception.ControllerException;
+import org.apache.commons.collections.map.HashedMap;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.CollectionUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.alibaba.fastjson.JSONObject;
 import com.quanhu.base.controller.BaseController;
-import com.quanhu.base.enums.CommonEnum;
-import com.quanhu.base.exception.ServiceException;
 import com.quanhu.base.service.BaseService;
 import com.quanhu.topic.entity.Topic;
 import com.quanhu.topic.service.TopicService;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 
@@ -61,6 +61,21 @@ public class TopicControl extends BaseController<Topic> {
 		List<Topic> list = topicService.listByPage(pageNo, pageSize);
 		model.addAttribute("list", list);
 		return	"topic/topicList";
+	}
+	
+	@RequestMapping(value="/json",method=RequestMethod.GET)
+	public void list2(HttpServletResponse response, int page, int rows) throws IOException{
+		if(page==0&&rows==0){
+			page=1;
+			rows=10;
+		}
+		List<Topic> list = topicService.listByPage(page, rows);
+		Map<String,Object> map = new HashedMap();
+		map.put("total", 625);
+		map.put("rows", list);
+		response.setCharacterEncoding("utf-8");
+		String string = JSONObject.toJSON(map).toString();
+		response.getWriter().write(string);
 	}
 
 }

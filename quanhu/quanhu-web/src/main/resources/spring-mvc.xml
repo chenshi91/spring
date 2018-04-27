@@ -12,7 +12,7 @@
 	<!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->
 	<context:component-scan base-package="com.quanhu" />
 	<context:component-scan base-package="com.yryz.sgt"/>
-	<!-- <context:component-scan base-package="com.yryz.quanhu.login"/> -->
+	<context:component-scan base-package="com.yryz.quanhu.login"/>
 	
 	<!-- 对于静态资源的请求（jsp.js.html.css.png.gif）放行，不经过DispatcherServlet -->
 	<mvc:default-servlet-handler  />
