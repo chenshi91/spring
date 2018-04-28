@@ -43,4 +43,15 @@ public class Day1_1CreateObject {
 
 		}
 	}
+	
+	public static void main(String[] args) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+		Student student = new Student((long)15,"liucf", 88.5);
+		Class<? extends Student> class1 = student.getClass();
+		Field nameField = class1.getDeclaredField("name");
+		nameField.setAccessible(true);
+		nameField.set(student, new String("yimu"));
+		System.out.println(student.getName());
+		Object object = nameField.get(student);
+		System.out.println(object);
+	}
 }
