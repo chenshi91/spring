@@ -9,8 +9,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
-import com.quanhu.topic.dao.TopicDao;
-import com.quanhu.topic.entity.Topic;
+import com.yryz.quanhu.topic.dao.TopicDao;
+import com.yryz.quanhu.topic.entity.Topic;
 
 /**
  * @description:	MybatisTest.java

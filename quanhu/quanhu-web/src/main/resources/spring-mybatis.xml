@@ -45,12 +45,15 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描mapping.xml文件 -->
-		<property name="mapperLocations" value="classpath:com/quanhu/mapper/**/*.xml"/>
+		<!---在classpath后面的*必不可少，缺少型号的话后面的通配符不起作用。
+                **表示可以表示任意多级目录，如：上述配置可以查到
+                【com/huaxin/framework/system/dao/UserDaoMapper.xml】-->
+		<property name="mapperLocations" value="classpath*:com/yryz/quanhu/**/*Mapper.xml"/>
 	</bean>
 
 	<!-- DAO接口所在包名，Spring会自动查找其下的类 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.quanhu.topic.dao" />
+		<property name="basePackage" value="com.yryz.quanhu.*.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
 	</bean>
 
