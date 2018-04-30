@@ -14,9 +14,9 @@ import org.springframework.dao.DataAccessException;
  * @author:   		chenshi
  */
 public abstract interface BaseDao<T	>{
-	 Byte	insert(T	t)throws	DataAccessException;
-	 Byte	update(T	t)throws	DataAccessException;
-	 Byte	delete(Long	id)throws	DataAccessException;
+	 int	insert(T	t)throws	DataAccessException;
+	 int	update(T	t)throws	DataAccessException;
+	 int	delete(Long	id)throws	DataAccessException;
 	 T		selectById(Long id)throws	DataAccessException;;
 	 List<T>	selectByIds(Long[] ids)throws	DataAccessException;;
 	 List<T>	selectAll()throws	DataAccessException;;

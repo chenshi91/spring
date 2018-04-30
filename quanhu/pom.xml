@@ -181,6 +181,21 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>1.9.13</version>
 		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.9.4</version>
+		</dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>2.9.0</version>
+        </dependency>
 		<!-- 上传组件包 -->
 		<dependency>
 			<groupId>commons-fileupload</groupId>
@@ -251,6 +266,7 @@
 		<module>quanhu-spring2</module>
 		<module>spring-quartz</module>
 		<module>sgt-demo</module>
+		<module>quanhu-demo</module>
 	</modules>
 
 </project>

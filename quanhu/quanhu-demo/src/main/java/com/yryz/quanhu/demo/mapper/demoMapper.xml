@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.yryz.quanhu.xyq.dao.GoodsDao">
+<mapper namespace="com.yryz.quanhu.demo.dao.DemoDao">
 
-	<sql id="table_name">xyq_goods</sql>
-	<sql id="table_files">id,prize,name</sql>
+	<sql id="table_name">test_demo</sql>
+	<sql id="table_files">id,name,age,content</sql>
 	
-	<resultMap type="com.yryz.quanhu.xyq.entity.Goods" id="outEntity">
+	<resultMap type="com.yryz.quanhu.demo.entity.Demo" id="outEntity">
 		<id	column="id" property="id"/>
 		<result	column="name" property="name"/>
-		<result	column="prize" property="prize"/>
+		<result	column="age" property="age"/>
+		<result column="content" property="content"/>
 	</resultMap>
 	
 	<parameterMap type="java.lang.Long" id="Long"/>	
 	<parameterMap type="java.lang.String" id="String"/>
-	<parameterMap id="entity" type="com.yryz.quanhu.xyq.entity.Goods"/>
+	<parameterMap id="entity" type="com.yryz.quanhu.demo.entity.Demo"/>
 		
 		
 	<select id="selectById"	parameterMap="Long"	resultMap="outEntity">
@@ -30,10 +31,7 @@
 		limit #{pageNo },#{pageSize}
 	</select>
 	
-	<select id="selectByTitlt"	resultMap="outEntity"	parameterMap="String">
-		select	<include refid="table_files"/> from	<include refid="table_name"/>
-		where	title	like	concat(concat('%',#{title}),'%')
-	</select>
+
 
 	<insert id="insert"	parameterMap="entity"	useGeneratedKeys="true"	keyColumn="id"	keyProperty="id">
 		insert into	<include refid="table_name"></include>(prize,name)

@@ -2,7 +2,6 @@
 package com.yryz.quanhu.topic.entity;
 
 import com.quanhu.base.entity.BaseEntity;
-import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.validation.constraints.Max;
 

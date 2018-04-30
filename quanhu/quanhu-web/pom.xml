@@ -15,6 +15,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.yryz.quanhu</groupId>
+			<artifactId>quanhu-demo</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.yryz.quanhu</groupId>
 			<artifactId>quanhu-xyq</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
