@@ -10,10 +10,11 @@
 		<result	column="name" property="name"/>
 		<result	column="prize" property="prize"/>
 	</resultMap>
-	
+
+    <parameterMap id="entity" type="com.yryz.quanhu.xyq.entity.Goods"/>
 	<parameterMap type="java.lang.Long" id="Long"/>	
 	<parameterMap type="java.lang.String" id="String"/>
-	<parameterMap id="entity" type="com.yryz.quanhu.xyq.entity.Goods"/>
+
 		
 		
 	<select id="selectById"	parameterMap="Long"	resultMap="outEntity">

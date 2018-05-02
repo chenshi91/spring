@@ -9,25 +9,30 @@ package Chp06_ObjectAndClass;
  * @author:   		chenshi
  */
 public class MyValueTest {
-	/**在 Java 中的方法参数传递中，基本类型+String直接传值，对象+数组传首地址*/
+	/**在 Java 中的方法参数传递中，
+	 * 	8种基本数据类型栈空间直接传值，
+	 * 	引用数据类型(类，数组,String,static修饰)传地址，
+	 * 		指针指向堆空间（类，数组）
+	 * 		指针指向常量池（String）
+	 * 		指针指向静态域（static修饰）	*/
 	public static void main(String[] args) {
 		int a=10;
 		changeInt(a);
-		System.out.println(a);
+		System.out.println("基本数据类型栈空间直接赋值："+a);
 		 
 		MyValue mv = new	MyValue();
 		mv.value=10;
 		changeObject(mv);
-		System.out.println(mv.value);
+		System.out.println("引用数据类型（对象）指针指向堆空间："+mv.value);
 
 		String str="123";
 		changeString(str);
-		System.out.println(str);
-		System.out.println("java" + 6 + 6);
+		System.out.println("引用数据类型（String）指针指向常量池："+str);
 
 		int[] ids=new int[]{2,1,3,7};
 		changeInteger(ids);
-        for (int id : ids) {
+		System.out.println("引用数据类型（数组）指针指向堆空间：");
+		for (int id : ids) {
             System.out.print(id+" ");
         }
 	}
