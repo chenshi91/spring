@@ -32,6 +32,26 @@
             });
 
         }
+
+        function outExcel() {
+            // alert("asd");
+            $.ajax({
+                type: 'post',
+                url: "${ctx}/xyq/outExcel",
+                dataType: "json",
+                success: function (data){
+                    alert(data.responseText);
+                    <%--response.sendRedirect("${ctx}/xyq");--%>
+                    if (data.responseText=="deleteOk"&&data.status==200){
+                        window.location.reload();
+                    }else {
+
+                    }
+                }
+
+            })
+        }
+
     </script>
 </head>
 <body>
@@ -67,10 +87,13 @@
                 <td> <a href="${ctx}/xyq/toUpdate/${xyq.id}">
                     <input value="修改" type="button" /></a>
                 <input type="button" value="删除" onclick="deletePrize(${xyq.id})"/>
-                <a href="${ctx}/jsp/xyq/updatePrize.jsp">添加</a>  </td>
+                <a href="${ctx}/jsp/xyq/updatePrize.jsp">添加</a>
+                </td>
             </tr>
         </c:forEach>
     </table>
+    <input type="button" value="导出Excel" onclick="outExcel()"/>
+
 </body>
 
 </html>

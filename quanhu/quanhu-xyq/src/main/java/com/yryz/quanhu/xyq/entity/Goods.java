@@ -32,4 +32,13 @@ public class Goods extends BaseEntity {
     public void setPrize(Double prize) {
         this.prize = prize;
     }
+
+    public Goods() {
+    }
+
+    public Goods(String name, Double prize) {
+
+        this.name = name;
+        this.prize = prize;
+    }
 }

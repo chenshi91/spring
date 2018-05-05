@@ -1,8 +1,11 @@
 /* created by chenshi at 2018-04-28 */
 package com.yryz.quanhu.xyq.controal;
 
+import com.quanhu.base.utils.ExcelUtil;
 import com.yryz.quanhu.xyq.entity.Goods;
 import com.yryz.quanhu.xyq.service.IGoodsService;
+import jxl.write.WriteException;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +15,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
+import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 @Controller
@@ -87,5 +96,43 @@ public class GoodsControal {
             goodsService.delete(id);
             return "deleteOk";
         }
+    }
+
+    @RequestMapping(value = "/outExcel",method = RequestMethod.POST)
+    public void outExcel(HttpServletRequest request,HttpServletResponse response) throws IOException, WriteException {
+        String fileName="xyq";
+        //获取web根目录
+        String url = request.getSession().getServletContext().getRealPath("/upload");
+
+        //1,将数据封装成一个map
+        List<String[]> sheetList = new ArrayList<>();
+        sheetList.add(new String[]{"名称","prize1","prize2","prize3","prize4"});
+        List<Goods> goodsList = goodsService.selectAll();
+        for (Goods goods : goodsList) {
+            sheetList.add(new String[]{goods.getName(),goods.getPrize().toString(),
+                    goods.getName()+"1",goods.getName()+"2",goods.getName()+"3"});
+        }
+        HashMap<String, List<String[]>> excelMap = new HashMap<>();
+        excelMap.put("xian物价",sheetList);
+
+        //2,调用工具类，在web项目/upload包下生成对应的Excel文件
+        ExcelUtil.outputExcel(fileName,url,excelMap);
+
+        //3,将Excel文件下载到浏览器
+        byte[] bytes = FileUtils.readFileToByteArray(new File(url + "/" + fileName + ".xls"));
+        response.setContentType("application/x-download");
+        response.setHeader("content-disposition","attachment;filename=aaa.xls");
+        ServletOutputStream outputStream = response.getOutputStream();
+        outputStream.write(bytes);
+        outputStream.flush();
+        outputStream.close();
+
+
+
+    }
+
+    public static  void main(String[] args){
+        GoodsControal goodsControal = new GoodsControal();
+//        goodsControal.outExcel();
     }
 }
