@@ -1,5 +1,7 @@
 package com.quanhu.base;
 
+import java.util.ArrayList;
+
 /**
  * Hello world!
  *
@@ -39,6 +41,10 @@ public class App {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
+		ArrayList<Object> list = new ArrayList<>();
+		for (Object o : list) {
+			System.out.println(o.toString());
+		}
+		System.out.println("hello");
 	}
 }

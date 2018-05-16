@@ -92,8 +92,10 @@
             </tr>
         </c:forEach>
     </table>
-    <input type="button" value="导出Excel" onclick="outExcel()"/>
-
+    <form action="${ctx}/xyq/outExcel" method="post">
+        <input name="fileName" placeholder="请输入导出文件名..."/>
+        <input type="submit" value="导出Excel" />
+    </form>
 </body>
 
 </html>

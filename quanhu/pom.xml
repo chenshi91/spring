@@ -290,6 +290,7 @@
 		<module>spring-quartz</module>
 		<module>sgt-demo</module>
 		<module>quanhu-demo</module>
-	</modules>
+        <module>quanhu-shiro</module>
+    </modules>
 
 </project>

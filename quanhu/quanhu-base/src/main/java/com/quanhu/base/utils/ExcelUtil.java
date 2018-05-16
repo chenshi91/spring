@@ -33,7 +33,10 @@ public class ExcelUtil {
         int i=0;
         Set<Map.Entry<String, List<String[]>>> entries = map.entrySet();
         for (Map.Entry<String, List<String[]>> entry : entries) {
+            //1，创建一页sheet
             WritableSheet sheet1 = workbook.createSheet(entry.getKey(),i );
+
+            //2,填充sheet内容
             List<String[]> writeList = entry.getValue();
             int size = writeList.size();
             //y轴坐标从0到list集合的长度

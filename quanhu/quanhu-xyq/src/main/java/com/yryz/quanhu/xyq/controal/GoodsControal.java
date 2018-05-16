@@ -99,11 +99,9 @@ public class GoodsControal {
     }
 
     @RequestMapping(value = "/outExcel",method = RequestMethod.POST)
-    public void outExcel(HttpServletRequest request,HttpServletResponse response) throws IOException, WriteException {
-        String fileName="xyq";
+    public void outExcel(String fileName,HttpServletRequest request,HttpServletResponse response) throws IOException, WriteException {
         //获取web根目录
-        String url = request.getSession().getServletContext().getRealPath("/upload");
-
+        String url = request.getServletContext().getRealPath("/upload");
         //1,将数据封装成一个map
         List<String[]> sheetList = new ArrayList<>();
         sheetList.add(new String[]{"名称","prize1","prize2","prize3","prize4"});
@@ -113,15 +111,16 @@ public class GoodsControal {
                     goods.getName()+"1",goods.getName()+"2",goods.getName()+"3"});
         }
         HashMap<String, List<String[]>> excelMap = new HashMap<>();
-        excelMap.put("xian物价",sheetList);
+        excelMap.put("宝石物价",sheetList);
 
         //2,调用工具类，在web项目/upload包下生成对应的Excel文件
         ExcelUtil.outputExcel(fileName,url,excelMap);
 
         //3,将Excel文件下载到浏览器
         byte[] bytes = FileUtils.readFileToByteArray(new File(url + "/" + fileName + ".xls"));
+        response.setCharacterEncoding("utf-8");
         response.setContentType("application/x-download");
-        response.setHeader("content-disposition","attachment;filename=aaa.xls");
+        response.setHeader("content-disposition","attachment;filename="+fileName+".xls");
         ServletOutputStream outputStream = response.getOutputStream();
         outputStream.write(bytes);
         outputStream.flush();
